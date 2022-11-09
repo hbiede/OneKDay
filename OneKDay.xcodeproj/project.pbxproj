@@ -11,6 +11,11 @@
 		3E45C608291B5B100002B1C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C607291B5B100002B1C5 /* ContentView.swift */; };
 		3E45C60A291B5B110002B1C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E45C609291B5B110002B1C5 /* Assets.xcassets */; };
 		3E45C60E291B5B110002B1C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E45C60D291B5B110002B1C5 /* Preview Assets.xcassets */; };
+		3E45C615291B5D620002B1C5 /* HealthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C614291B5D620002B1C5 /* HealthData.swift */; };
+		3E45C618291B5E170002B1C5 /* HealthKitSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C617291B5E170002B1C5 /* HealthKitSupport.swift */; };
+		3E45C61A291B5E2C0002B1C5 /* HealthKitSupport+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C619291B5E2C0002B1C5 /* HealthKitSupport+Strings.swift */; };
+		3E45C61D291B6E8D0002B1C5 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C61C291B6E8D0002B1C5 /* Types.swift */; };
+		3E45C61F291B752A0002B1C5 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C61E291B752A0002B1C5 /* SettingsSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +25,12 @@
 		3E45C609291B5B110002B1C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E45C60B291B5B110002B1C5 /* OneKDay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneKDay.entitlements; sourceTree = "<group>"; };
 		3E45C60D291B5B110002B1C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3E45C614291B5D620002B1C5 /* HealthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthData.swift; sourceTree = "<group>"; };
+		3E45C617291B5E170002B1C5 /* HealthKitSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSupport.swift; sourceTree = "<group>"; };
+		3E45C619291B5E2C0002B1C5 /* HealthKitSupport+Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthKitSupport+Strings.swift"; sourceTree = "<group>"; };
+		3E45C61B291B63A50002B1C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3E45C61C291B6E8D0002B1C5 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		3E45C61E291B752A0002B1C5 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +63,15 @@
 		3E45C604291B5B100002B1C5 /* OneKDay */ = {
 			isa = PBXGroup;
 			children = (
+				3E45C61B291B63A50002B1C5 /* Info.plist */,
+				3E45C616291B5E020002B1C5 /* HealthData */,
 				3E45C605291B5B100002B1C5 /* OneKDayApp.swift */,
 				3E45C607291B5B100002B1C5 /* ContentView.swift */,
+				3E45C61C291B6E8D0002B1C5 /* Types.swift */,
 				3E45C609291B5B110002B1C5 /* Assets.xcassets */,
 				3E45C60B291B5B110002B1C5 /* OneKDay.entitlements */,
 				3E45C60C291B5B110002B1C5 /* Preview Content */,
+				3E45C61E291B752A0002B1C5 /* SettingsSheet.swift */,
 			);
 			path = OneKDay;
 			sourceTree = "<group>";
@@ -67,6 +82,16 @@
 				3E45C60D291B5B110002B1C5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3E45C616291B5E020002B1C5 /* HealthData */ = {
+			isa = PBXGroup;
+			children = (
+				3E45C614291B5D620002B1C5 /* HealthData.swift */,
+				3E45C617291B5E170002B1C5 /* HealthKitSupport.swift */,
+				3E45C619291B5E2C0002B1C5 /* HealthKitSupport+Strings.swift */,
+			);
+			path = HealthData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +164,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E45C618291B5E170002B1C5 /* HealthKitSupport.swift in Sources */,
+				3E45C615291B5D620002B1C5 /* HealthData.swift in Sources */,
+				3E45C61A291B5E2C0002B1C5 /* HealthKitSupport+Strings.swift in Sources */,
+				3E45C61D291B6E8D0002B1C5 /* Types.swift in Sources */,
 				3E45C608291B5B100002B1C5 /* ContentView.swift in Sources */,
+				3E45C61F291B752A0002B1C5 /* SettingsSheet.swift in Sources */,
 				3E45C606291B5B100002B1C5 /* OneKDayApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +181,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_NUMBER = 1;
+				BUILD_VERSION = 1.0.0;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -209,6 +241,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_NUMBER = 1;
+				BUILD_VERSION = 1.0.0;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -263,12 +297,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = OneKDay/OneKDay.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = $BUILD_NUMBER;
 				DEVELOPMENT_ASSET_PATHS = "\"OneKDay/Preview Content\"";
 				DEVELOPMENT_TEAM = 69RV8YV62P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneKDay/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Used to access step count and distance traveled";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -277,20 +314,22 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.5;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = $BUILD_VERSION;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hbiede.OneKDay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -301,12 +340,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = OneKDay/OneKDay.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = $BUILD_NUMBER;
 				DEVELOPMENT_ASSET_PATHS = "\"OneKDay/Preview Content\"";
 				DEVELOPMENT_TEAM = 69RV8YV62P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneKDay/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Used to access step count and distance traveled";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -315,20 +357,22 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.5;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = $BUILD_VERSION;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hbiede.OneKDay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
