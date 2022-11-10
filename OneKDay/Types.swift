@@ -7,14 +7,16 @@
 
 import Foundation
 
+// swiftlint:disable identifier_name
 let BACKGROUND_ID = "com.hbiede.OneKDay.notify"
 let NOTIFICATION_UUID = "notificationUUID"
 let STEP_GOAL_KEY = "stepGoal"
+// swiftlint:enable identifier_name
 
-struct StepEntry {
-    var stepCount: Double
-    
+struct MetricEntry {
+    var metric: Double
+
     var startDate: Date
-    
+
     var endDate: Date
 }

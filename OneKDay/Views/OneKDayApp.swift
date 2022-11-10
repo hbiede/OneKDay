@@ -13,12 +13,13 @@ import SwiftUI
 @main
 struct OneKDayApp: App {
     private let userDefaults = UserDefaults()
+    private let notificationCenter = UNUserNotificationCenter.current()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .onAppear {
-                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .provisional, .sound]) { granted, _ in
+                    notificationCenter.requestAuthorization(options: [.alert, .provisional, .sound]) { granted, _ in
                         if granted {
                             print("User allowed alerts")
                         } else {
@@ -26,7 +27,8 @@ struct OneKDayApp: App {
                         }
                     }
                     BGTaskScheduler.shared.register(forTaskWithIdentifier: BACKGROUND_ID, using: .main) { task in
-                         handleBackgroundUpdate(task: task as! BGAppRefreshTask)
+                        // swiftlint:disable:next force_cast
+                        handleBackgroundUpdate(task: task as! BGAppRefreshTask)
                     }
                     requestAppRefresh()
                     HealthData.requestHealthDataAccessIfNeeded { success in
@@ -35,32 +37,46 @@ struct OneKDayApp: App {
                     let content = UNMutableNotificationContent()
                     content.title = "Get Stepping!"
                     content.body = "Get your \(1000) steps in the next \(15) minutes!"
-                    let request = UNNotificationRequest(identifier: "stepGoalNotAchieved", content: content, trigger: nil)
-                    UNUserNotificationCenter.current().add(request)
+                    let request = UNNotificationRequest(
+                        identifier: "stepGoalNotAchieved",
+                        content: content,
+                        trigger: nil
+                    )
+                    notificationCenter.add(request)
                 }
         }
     }
-    
+
     func handleBackgroundUpdate(task: BGAppRefreshTask) {
-        requestAppRefresh()
         let components = Calendar.current.dateComponents([.hour, .minute], from: Date())
+        let contentTest = UNMutableNotificationContent()
+        contentTest.title = "TEST: Get Stepping!"
+        contentTest.body = "Get your \(1000) steps in the next \(components.hour!) minutes!"
+        let request1 = UNNotificationRequest(identifier: "testNotifSteps", content: contentTest, trigger: nil)
+        notificationCenter.add(request1)
+
         // Only run from 8 AM to 8 PM
         if components.hour! >= 8 && components.hour! < 20 {
-            HealthData.getHourlyStepCount { result in
+            HealthData.getHourlyMetricCount(for: .stepCount) { result in
                 let stepGoal = userDefaults.integer(forKey: STEP_GOAL_KEY)
-                
+
                 let minutesEarly = 60 - components.minute!
-                if result.isEmpty || (Int(result[0].stepCount) < minutesEarly && Int(result[0].stepCount) > 0) {
+                if result.isEmpty || (Int(result[0].metric) < minutesEarly && Int(result[0].metric) > 0) {
                     let content = UNMutableNotificationContent()
                     content.title = "Get Stepping!"
                     content.body = "Get your \(stepGoal) steps in the next \(minutesEarly) minutes!"
-                    let request = UNNotificationRequest(identifier: "stepGoalNotAchieved", content: content, trigger: nil)
-                    UNUserNotificationCenter.current().add(request)
+                    let request = UNNotificationRequest(
+                        identifier: "stepGoalNotAchieved",
+                        content: content,
+                        trigger: nil
+                    )
+                    notificationCenter.add(request)
                 }
             }
         }
+        requestAppRefresh()
     }
-    
+
     func requestAppRefresh() {
         let components = Calendar.current.dateComponents([.hour], from: Date())
         let request = BGAppRefreshTaskRequest(identifier: BACKGROUND_ID)

@@ -10,10 +10,10 @@ import SwiftUI
 
 struct SettingsSheet: View {
     @Environment(\.dismiss) private var dismiss
-    
+
     @State private var stepGoal = "0"
     @State private var minutesEarly = "0"
-    
+
     var body: some View {
         NavigationView {
             Form {
@@ -45,12 +45,12 @@ struct SettingsSheet: View {
                 stepGoal = "\(stepGoalDefault == 0 ? 1000 : stepGoalDefault)"
             }
     }
-    
+
     func onDismiss() {
         submitStepGoal()
         dismiss()
     }
-    
+
     func submitStepGoal() {
         UserDefaults().set(Int(stepGoal), forKey: STEP_GOAL_KEY)
         print("New Goal: \(stepGoal)")
