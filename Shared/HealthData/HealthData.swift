@@ -1,9 +1,11 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-A collection of HealthKit properties, functions, and utilities.
-*/
+ * A modified version of a file included in an Apple example project
+ *
+ * See LICENSE folder for this sample’s licensing information.
+ *
+ * Abstract:
+ * A collection of HealthKit properties, functions, and utilities.
+ */
 
 import Foundation
 import HealthKit
@@ -119,7 +121,7 @@ class HealthData {
           if let myResults = results {
             var stepsArray: [MetricEntry] = []
             myResults.enumerateStatistics(from: startDate, to: endDate) { statistics, _ in
-                if let quantity = getStatisticsQuantity(for: statistics, with: .cumulativeSum) {
+                if let quantity = statistics.sumQuantity() {
                     stepsArray.append(
                         MetricEntry(
                             metric: quantity.doubleValue(
@@ -128,7 +130,8 @@ class HealthData {
                                 )!
                             ),
                             startDate: statistics.startDate,
-                            endDate: statistics.endDate
+                            endDate: statistics.endDate,
+                            type: identifier
                         )
                     )
                 }
@@ -140,3 +143,17 @@ class HealthData {
         healthStore.execute(query)
       }
 }
+
+func getSampleType(for identifier: String) -> HKSampleType? {
+    if let quantityType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier(rawValue: identifier)) {
+        return quantityType
+    }
+
+    if let categoryType = HKCategoryType.categoryType(forIdentifier: HKCategoryTypeIdentifier(rawValue: identifier)) {
+        return categoryType
+    }
+
+    return nil
+}
+
+

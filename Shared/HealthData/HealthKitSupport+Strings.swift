@@ -1,9 +1,11 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-A collection of utility functions used for displaying strings related to HealthKit.
-*/
+ * A modified version of a file included in an Apple example project
+ *
+ * See LICENSE folder for this sample’s licensing information.
+ *
+ * Abstract:
+ * A collection of utility functions used for displaying strings related to HealthKit.
+ */
 
 import Foundation
 import HealthKit

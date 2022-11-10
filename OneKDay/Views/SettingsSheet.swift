@@ -2,7 +2,7 @@
 //  SettingsSheet.swift
 //  OneKDay
 //
-//  Created by Elijah Biede on 11/8/22.
+//  Created by Hundter Biede on 11/8/22.
 //
 
 import Foundation

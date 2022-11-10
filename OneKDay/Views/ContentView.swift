@@ -125,7 +125,7 @@ struct ContentView: View {
     
     func getBarGraphStyle(for entry: Double) -> some ShapeStyle {
         if currentMetricIndex == 0 {
-            return Int(entry) >= stepGoal ? Color.green : Color.red
+            return getGoalComparisonColor(Int(entry), goal: stepGoal)
         } else {
             let metricList = metricCounts[metricOptions[currentMetricIndex], default: []]
             let min = metricList.min { a, b in
@@ -134,8 +134,6 @@ struct ContentView: View {
             let max = metricList.max { a, b in
                 a.metric < b.metric
             }?.metric ?? 0.5
-            print(min)
-            print(max)
             let gap = 1 / 3 * (max - min)
             let lowerBound = min + gap
             let upperBound = max - gap
@@ -148,16 +146,6 @@ struct ContentView: View {
                 return Color.green
             }
         }
-    }
-
-    func formatDate(_ date: Date) -> String {
-        let is12HourClock = NSLocale.current.hourCycle == .oneToTwelve
-        let formatter: DateFormatter = {
-            let temp = DateFormatter()
-            temp.dateFormat = is12HourClock ? "MMM d, h:mm a" : "MMM d, hh:mm"
-            return temp
-        }()
-        return formatter.string(from: date)
     }
 
     func setValuesFromDefault() {

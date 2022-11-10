@@ -11,11 +11,50 @@
 		3E45C608291B5B100002B1C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C607291B5B100002B1C5 /* ContentView.swift */; };
 		3E45C60A291B5B110002B1C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E45C609291B5B110002B1C5 /* Assets.xcassets */; };
 		3E45C615291B5D620002B1C5 /* HealthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C614291B5D620002B1C5 /* HealthData.swift */; };
-		3E45C618291B5E170002B1C5 /* HealthKitSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C617291B5E170002B1C5 /* HealthKitSupport.swift */; };
 		3E45C61A291B5E2C0002B1C5 /* HealthKitSupport+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C619291B5E2C0002B1C5 /* HealthKitSupport+Strings.swift */; };
 		3E45C61D291B6E8D0002B1C5 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C61C291B6E8D0002B1C5 /* Types.swift */; };
 		3E45C61F291B752A0002B1C5 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C61E291B752A0002B1C5 /* SettingsSheet.swift */; };
+		3E6B9FC6291C8CF5000A8808 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6B9FC5291C8CF5000A8808 /* WidgetKit.framework */; };
+		3E6B9FC8291C8CF5000A8808 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6B9FC7291C8CF5000A8808 /* SwiftUI.framework */; };
+		3E6B9FCB291C8CF5000A8808 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B9FCA291C8CF5000A8808 /* WidgetBundle.swift */; };
+		3E6B9FCD291C8CF5000A8808 /* WidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B9FCC291C8CF5000A8808 /* WidgetProvider.swift */; };
+		3E6B9FD0291C8CF6000A8808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E6B9FCF291C8CF6000A8808 /* Assets.xcassets */; };
+		3E6B9FD2291C8CF6000A8808 /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B9FCE291C8CF6000A8808 /* Widget.intentdefinition */; };
+		3E6B9FD3291C8CF6000A8808 /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B9FCE291C8CF6000A8808 /* Widget.intentdefinition */; };
+		3E6B9FD6291C8CF6000A8808 /* WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3E6B9FC3291C8CF5000A8808 /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3EABCC6D291C92DA00EB680B /* WidgetBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABCC6B291C92BB00EB680B /* WidgetBaseView.swift */; };
+		3EABCC6E291C93BF00EB680B /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C61C291B6E8D0002B1C5 /* Types.swift */; };
+		3EABCC6F291C93BF00EB680B /* HealthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C614291B5D620002B1C5 /* HealthData.swift */; };
+		3EABCC70291C93BF00EB680B /* HealthKitSupport+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C619291B5E2C0002B1C5 /* HealthKitSupport+Strings.swift */; };
+		3EABCC73291C94BD00EB680B /* SmallWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABCC72291C94BD00EB680B /* SmallWidget.swift */; };
+		3EABCC75291C94C800EB680B /* FullWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABCC74291C94C800EB680B /* FullWidget.swift */; };
+		3EABCC78291C97F200EB680B /* ChartUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABCC77291C97F200EB680B /* ChartUtils.swift */; };
+		3EABCC79291C97F500EB680B /* ChartUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABCC77291C97F200EB680B /* ChartUtils.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3E6B9FD4291C8CF6000A8808 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E45C5FA291B5B100002B1C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E6B9FC2291C8CF5000A8808;
+			remoteInfo = WidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3E6B9FD7291C8CF7000A8808 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3E6B9FD6291C8CF6000A8808 /* WidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3E45C602291B5B100002B1C5 /* OneKDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneKDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,11 +63,23 @@
 		3E45C609291B5B110002B1C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E45C60B291B5B110002B1C5 /* OneKDay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneKDay.entitlements; sourceTree = "<group>"; };
 		3E45C614291B5D620002B1C5 /* HealthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthData.swift; sourceTree = "<group>"; };
-		3E45C617291B5E170002B1C5 /* HealthKitSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSupport.swift; sourceTree = "<group>"; };
 		3E45C619291B5E2C0002B1C5 /* HealthKitSupport+Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthKitSupport+Strings.swift"; sourceTree = "<group>"; };
 		3E45C61B291B63A50002B1C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3E45C61C291B6E8D0002B1C5 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		3E45C61E291B752A0002B1C5 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
+		3E6B9FC3291C8CF5000A8808 /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E6B9FC5291C8CF5000A8808 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		3E6B9FC7291C8CF5000A8808 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		3E6B9FCA291C8CF5000A8808 /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
+		3E6B9FCC291C8CF5000A8808 /* WidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetProvider.swift; sourceTree = "<group>"; };
+		3E6B9FCE291C8CF6000A8808 /* Widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Widget.intentdefinition; sourceTree = "<group>"; };
+		3E6B9FCF291C8CF6000A8808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3E6B9FD1291C8CF6000A8808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E6B9FDB291C8D43000A8808 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
+		3EABCC6B291C92BB00EB680B /* WidgetBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBaseView.swift; sourceTree = "<group>"; };
+		3EABCC72291C94BD00EB680B /* SmallWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidget.swift; sourceTree = "<group>"; };
+		3EABCC74291C94C800EB680B /* FullWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidget.swift; sourceTree = "<group>"; };
+		3EABCC77291C97F200EB680B /* ChartUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,13 +90,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3E6B9FC0291C8CF5000A8808 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E6B9FC8291C8CF5000A8808 /* SwiftUI.framework in Frameworks */,
+				3E6B9FC6291C8CF5000A8808 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		3E45C5F9291B5B100002B1C5 = {
 			isa = PBXGroup;
 			children = (
+				3E6B9FDB291C8D43000A8808 /* WidgetExtension.entitlements */,
+				3EABCC71291C93D800EB680B /* Shared */,
 				3E45C604291B5B100002B1C5 /* OneKDay */,
+				3E6B9FC9291C8CF5000A8808 /* Widget */,
+				3E6B9FC4291C8CF5000A8808 /* Frameworks */,
 				3E45C603291B5B100002B1C5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				3E45C602291B5B100002B1C5 /* OneKDay.app */,
+				3E6B9FC3291C8CF5000A8808 /* WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,9 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				3E45C61B291B63A50002B1C5 /* Info.plist */,
-				3E45C616291B5E020002B1C5 /* HealthData */,
 				3E6B9FBE291C7B38000A8808 /* Views */,
-				3E45C61C291B6E8D0002B1C5 /* Types.swift */,
 				3E45C609291B5B110002B1C5 /* Assets.xcassets */,
 				3E45C60B291B5B110002B1C5 /* OneKDay.entitlements */,
 			);
@@ -75,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				3E45C614291B5D620002B1C5 /* HealthData.swift */,
-				3E45C617291B5E170002B1C5 /* HealthKitSupport.swift */,
 				3E45C619291B5E2C0002B1C5 /* HealthKitSupport+Strings.swift */,
 			);
 			path = HealthData;
@@ -91,6 +153,48 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3E6B9FC4291C8CF5000A8808 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E6B9FC5291C8CF5000A8808 /* WidgetKit.framework */,
+				3E6B9FC7291C8CF5000A8808 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3E6B9FC9291C8CF5000A8808 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				3EABCC76291C956D00EB680B /* Widget */,
+				3E6B9FCC291C8CF5000A8808 /* WidgetProvider.swift */,
+				3E6B9FCA291C8CF5000A8808 /* WidgetBundle.swift */,
+				3E6B9FCE291C8CF6000A8808 /* Widget.intentdefinition */,
+				3E6B9FCF291C8CF6000A8808 /* Assets.xcassets */,
+				3E6B9FD1291C8CF6000A8808 /* Info.plist */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		3EABCC71291C93D800EB680B /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				3E45C616291B5E020002B1C5 /* HealthData */,
+				3E45C61C291B6E8D0002B1C5 /* Types.swift */,
+				3EABCC77291C97F200EB680B /* ChartUtils.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		3EABCC76291C956D00EB680B /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				3EABCC74291C94C800EB680B /* FullWidget.swift */,
+				3EABCC72291C94BD00EB680B /* SmallWidget.swift */,
+				3EABCC6B291C92BB00EB680B /* WidgetBaseView.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -101,15 +205,34 @@
 				3E45C5FE291B5B100002B1C5 /* Sources */,
 				3E45C5FF291B5B100002B1C5 /* Frameworks */,
 				3E45C600291B5B100002B1C5 /* Resources */,
+				3E6B9FD7291C8CF7000A8808 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3E6B9FD5291C8CF6000A8808 /* PBXTargetDependency */,
 			);
 			name = OneKDay;
 			productName = OneKDay;
 			productReference = 3E45C602291B5B100002B1C5 /* OneKDay.app */;
 			productType = "com.apple.product-type.application";
+		};
+		3E6B9FC2291C8CF5000A8808 /* WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E6B9FDA291C8CF7000A8808 /* Build configuration list for PBXNativeTarget "WidgetExtension" */;
+			buildPhases = (
+				3E6B9FBF291C8CF5000A8808 /* Sources */,
+				3E6B9FC0291C8CF5000A8808 /* Frameworks */,
+				3E6B9FC1291C8CF5000A8808 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WidgetExtension;
+			productName = WidgetExtension;
+			productReference = 3E6B9FC3291C8CF5000A8808 /* WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -122,6 +245,9 @@
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					3E45C601291B5B100002B1C5 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					3E6B9FC2291C8CF5000A8808 = {
 						CreatedOnToolsVersion = 14.1;
 					};
 				};
@@ -140,6 +266,7 @@
 			projectRoot = "";
 			targets = (
 				3E45C601291B5B100002B1C5 /* OneKDay */,
+				3E6B9FC2291C8CF5000A8808 /* WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -153,6 +280,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3E6B9FC1291C8CF5000A8808 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E6B9FD0291C8CF6000A8808 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -160,17 +295,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E45C618291B5E170002B1C5 /* HealthKitSupport.swift in Sources */,
 				3E45C615291B5D620002B1C5 /* HealthData.swift in Sources */,
 				3E45C61A291B5E2C0002B1C5 /* HealthKitSupport+Strings.swift in Sources */,
 				3E45C61D291B6E8D0002B1C5 /* Types.swift in Sources */,
+				3E6B9FD3291C8CF6000A8808 /* Widget.intentdefinition in Sources */,
 				3E45C608291B5B100002B1C5 /* ContentView.swift in Sources */,
 				3E45C61F291B752A0002B1C5 /* SettingsSheet.swift in Sources */,
+				3EABCC79291C97F500EB680B /* ChartUtils.swift in Sources */,
 				3E45C606291B5B100002B1C5 /* OneKDayApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3E6B9FBF291C8CF5000A8808 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EABCC78291C97F200EB680B /* ChartUtils.swift in Sources */,
+				3E6B9FCB291C8CF5000A8808 /* WidgetBundle.swift in Sources */,
+				3EABCC73291C94BD00EB680B /* SmallWidget.swift in Sources */,
+				3EABCC75291C94C800EB680B /* FullWidget.swift in Sources */,
+				3EABCC70291C93BF00EB680B /* HealthKitSupport+Strings.swift in Sources */,
+				3E6B9FCD291C8CF5000A8808 /* WidgetProvider.swift in Sources */,
+				3EABCC6D291C92DA00EB680B /* WidgetBaseView.swift in Sources */,
+				3EABCC6F291C93BF00EB680B /* HealthData.swift in Sources */,
+				3EABCC6E291C93BF00EB680B /* Types.swift in Sources */,
+				3E6B9FD2291C8CF6000A8808 /* Widget.intentdefinition in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3E6B9FD5291C8CF6000A8808 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E6B9FC2291C8CF5000A8808 /* WidgetExtension */;
+			targetProxy = 3E6B9FD4291C8CF6000A8808 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3E45C60F291B5B110002B1C5 /* Debug */ = {
@@ -289,6 +450,7 @@
 		3E45C612291B5B110002B1C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = OneKDay/OneKDay.entitlements;
@@ -299,7 +461,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OneKDay/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "OneK Day";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Used to access step count and distance traveled";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -331,6 +494,7 @@
 		3E45C613291B5B110002B1C5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = OneKDay/OneKDay.entitlements;
@@ -341,7 +505,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OneKDay/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "OneK Day";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Used to access step count and distance traveled";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -370,6 +535,67 @@
 			};
 			name = Release;
 		};
+		3E6B9FD8291C8CF7000A8808 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = $BUILD_NUMBER;
+				DEVELOPMENT_TEAM = 69RV8YV62P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "OneK Day";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = $BUILD_VERSION;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hbiede.OneKDay.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		3E6B9FD9291C8CF7000A8808 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = $BUILD_NUMBER;
+				DEVELOPMENT_TEAM = 69RV8YV62P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "OneK Day";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = $BUILD_VERSION;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hbiede.OneKDay.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -387,6 +613,15 @@
 			buildConfigurations = (
 				3E45C612291B5B110002B1C5 /* Debug */,
 				3E45C613291B5B110002B1C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E6B9FDA291C8CF7000A8808 /* Build configuration list for PBXNativeTarget "WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E6B9FD8291C8CF7000A8808 /* Debug */,
+				3E6B9FD9291C8CF7000A8808 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
