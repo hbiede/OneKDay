@@ -12,6 +12,8 @@ import SwiftUI
 let metricOptions: [HKQuantityTypeIdentifier] = HealthData.measurableHealthMetrics
 
 struct ContentView: View {
+    @Environment(\.scenePhase) var scenePhase
+
     private let userDefaults = UserDefaults()
 
     @State private var currentMetricIndex: Int = 0
@@ -20,6 +22,8 @@ struct ContentView: View {
         metricOptions[0]: []
     ]
     @State private var showingSheet = false
+    @State private var dataAnimationPower = 0.0
+
     @AppStorage(STEP_GOAL_KEY) var stepGoal = 0
 
     @ViewBuilder
@@ -34,42 +38,40 @@ struct ContentView: View {
                     if !currentMetricList.isEmpty {
                         Chart(currentMetricList, id: \.startDate) {
                             BarMark(
-                                x: .value("Time", $0.startDate, unit: .hour),
+                                x: .value("Time", $0.startDate, unit: .hour, calendar: Calendar.current),
                                 y: .value(
-                                        getUnitSuffix(
-                                            for: preferredUnit(
-                                                for: metricID
-                                            )
-                                        )?.capitalized(with: Locale.current) ?? "Measurement",
-                                        $0.metric
-                                    )
+                                    getUnitSuffix(
+                                        for: preferredUnit(
+                                            for: metricID
+                                        )
+                                    )?.capitalized(with: Locale.current) ?? "Measurement",
+                                    pow($0.metric, dataAnimationPower)
+                                )
                             )
                             .foregroundStyle(getBarGraphStyle(for: $0.metric))
-                                .accessibilityLabel(formatDate($0.startDate))
-                                .accessibilityValue(formattedValue(
-                                    $0.metric,
-                                    typeIdentifier: metricID
-                                ) ?? "X")
+                            .accessibilityLabel(formatDate($0.startDate))
+                            .accessibilityValue(formattedValue(
+                                $0.metric,
+                                typeIdentifier: metricID
+                            ) ?? "X")
                             if currentMetricIndex == 0 {
                                 RuleMark(
                                     y: .value("Goal", stepGoal)
                                 )
-                                    .accessibilityLabel("Goal")
-                                    .accessibilityValue(formattedValue(
-                                        Double(stepGoal),
-                                        typeIdentifier: metricID
-                                    ) ?? "X")
+                                .accessibilityLabel("Goal")
+                                .accessibilityValue(formattedValue(
+                                    Double(stepGoal),
+                                    typeIdentifier: metricID
+                                ) ?? "X")
                             }
                         }
-                            .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                        
-                        Subtitle
+                        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+
+                        subtitle
                     }
                 }
                 .padding(EdgeInsets(top: 16, leading: 0, bottom: 16, trailing: 0))
                 .navigationTitle("OneK Day")
-                .toolbarBackground(Color.accentColor, for: .navigationBar)
-                .toolbarBackground(.visible, for: .navigationBar)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     Button {
@@ -79,21 +81,29 @@ struct ContentView: View {
                             .foregroundColor(.black)
                     }
                 }
+                .toolbarBackground(Color.accentColor, for: .navigationBar)
+                .toolbarBackground(.visible, for: .navigationBar)
                 .onAppear(perform: onAppear)
+                .onChange(of: scenePhase) { newPhase in
+                    if newPhase == .active {
+                        loadMetrics(for: metricOptions[currentMetricIndex])
+                    }
+                }
                 .sheet(isPresented: $showingSheet, onDismiss: setValuesFromDefault) {
                     SettingsSheet()
                 }
             }
         }
     }
-    
+
     @ViewBuilder
-    private var Subtitle: some View {
+    private var subtitle: some View {
         let metricID = metricOptions[currentMetricIndex]
         let currentMetricList = metricCounts[metricID, default: []]
         Button {
             currentMetricIndex = (currentMetricIndex + 1) % metricOptions.count
             loadMetrics(for: metricOptions[currentMetricIndex])
+            animateData()
         } label: {
             VStack(alignment: .center) {
                 let metricStringOpt = formattedValue(
@@ -120,23 +130,23 @@ struct ContentView: View {
                 }
             }
         }
-            .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+        .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
     }
-    
+
     func getBarGraphStyle(for entry: Double) -> some ShapeStyle {
         if currentMetricIndex == 0 {
             return getGoalComparisonColor(Int(entry), goal: stepGoal)
         } else {
             let metricList = metricCounts[metricOptions[currentMetricIndex], default: []]
-            let min = metricList.min { a, b in
-                a.metric < b.metric
+            let minMetric = metricList.min {
+                $1.metric < $1.metric
             }?.metric ?? 0
-            let max = metricList.max { a, b in
-                a.metric < b.metric
+            let maxMetric = metricList.max {
+                $1.metric < $1.metric
             }?.metric ?? 0.5
-            let gap = 1 / 3 * (max - min)
-            let lowerBound = min + gap
-            let upperBound = max - gap
+            let sectionSize = 1 / 3 * (maxMetric - minMetric)
+            let lowerBound = minMetric + sectionSize
+            let upperBound = maxMetric - sectionSize
 
             if entry < lowerBound {
                 return Color.red
@@ -159,6 +169,7 @@ struct ContentView: View {
     func onAppear() {
         loadMetrics(for: metricOptions[currentMetricIndex])
         setValuesFromDefault()
+        animateData()
     }
 
     func loadMetrics(for indentifier: HKQuantityTypeIdentifier) {
@@ -177,6 +188,13 @@ struct ContentView: View {
                     }
                 }
             }
+        }
+    }
+
+    func animateData() {
+        dataAnimationPower = 10
+        withAnimation(.easeInOut(duration: 1)) {
+            dataAnimationPower = 1
         }
     }
 }

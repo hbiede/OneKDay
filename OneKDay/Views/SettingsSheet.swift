@@ -27,23 +27,23 @@ struct SettingsSheet: View {
                         .keyboardType(.numberPad)
                 }
             }
-                .navigationTitle("Settings")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
-                            onDismiss()
-                        } label: {
-                            Label("Back", systemImage: "chevron.backward")
-                        }
+            .navigationTitle("Settings")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        onDismiss()
+                    } label: {
+                        Label("Back", systemImage: "chevron.backward")
                     }
                 }
-                .toolbarRole(.navigationStack)
             }
-            .onAppear {
-                let stepGoalDefault = UserDefaults().integer(forKey: STEP_GOAL_KEY)
-                stepGoal = "\(stepGoalDefault == 0 ? 1000 : stepGoalDefault)"
-            }
+            .toolbarRole(.navigationStack)
+        }
+        .onAppear {
+            let stepGoalDefault = UserDefaults().integer(forKey: STEP_GOAL_KEY)
+            stepGoal = "\(stepGoalDefault == 0 ? 1000 : stepGoalDefault)"
+        }
     }
 
     func onDismiss() {

@@ -13,7 +13,7 @@ import WidgetKit
 struct OneKDayApp: App {
     private let userDefaults = UserDefaults()
     private let notificationCenter = UNUserNotificationCenter.current()
-    
+
     @State private var hasCheckedHealthAccess = false
     @State private var canReadHealthData = false
 

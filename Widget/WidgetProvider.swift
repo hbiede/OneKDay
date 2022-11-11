@@ -9,20 +9,18 @@ import Intents
 import WidgetKit
 
 struct Provider: IntentTimelineProvider {
-    
+
     typealias Entry = StepCountEntry
-    
+
     typealias Intent = StepCountConfigurationIntent
-    
+
     let stepGoal = UserDefaults().integer(forKey: STEP_GOAL_KEY)
 
     func placeholder(in context: Context) -> StepCountEntry {
-        print(stepGoal)
         return Entry(date: Date(), configuration: Intent(), metrics: [])
     }
 
-    func getSnapshot(for configuration: Intent, in context: Context, completion: @escaping (Entry) -> ()) {
-        print(stepGoal)
+    func getSnapshot(for configuration: Intent, in context: Context, completion: @escaping (Entry) -> Void) {
         getStepCounts { metrics in
             completion(
                 Entry(date: Date(), configuration: configuration, metrics: metrics)
@@ -30,8 +28,7 @@ struct Provider: IntentTimelineProvider {
         }
     }
 
-    func getTimeline(for configuration: Intent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        print(stepGoal)
+    func getTimeline(for configuration: Intent, in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         getStepCounts { metrics in
             completion(
                 Timeline(
@@ -44,7 +41,7 @@ struct Provider: IntentTimelineProvider {
             )
         }
     }
-    
+
     func getStepCounts(completion: @escaping ([MetricEntry]) -> Void) {
         HealthData.getHourlyMetricCount(for: .stepCount, completion: completion)
     }

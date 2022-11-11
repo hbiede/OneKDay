@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import WidgetKit
 
-struct StepCountWidgetEntryView : View {
+struct StepCountWidgetEntryView: View {
     @Environment(\.widgetFamily) var widgetFamily
     var entry: Provider.Entry
 
@@ -17,7 +17,7 @@ struct StepCountWidgetEntryView : View {
     var body: some View {
         let metrics = entry.metrics
         let lastCount = metrics.isEmpty ? 0.0 : metrics[metrics.count - 1].metric
-        
+
         switch widgetFamily {
         case .accessoryCircular:
             ZStack {
@@ -29,10 +29,10 @@ struct StepCountWidgetEntryView : View {
         case .accessoryRectangular, .accessoryInline:
             Text(formattedValue(
                 lastCount,
-                    typeIdentifier: .stepCount
-                )!
+                typeIdentifier: .stepCount
+            )!
             )
-                .font(.largeTitle)
+            .font(.largeTitle)
         case .systemSmall:
             SmallWidget(stepCount: metrics.isEmpty ? 0 : Int(lastCount))
         default:
@@ -50,7 +50,7 @@ struct Widget_Previews: PreviewProvider {
                 metrics: []
             )
         )
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
 
@@ -69,7 +69,7 @@ struct StepCountWidget: Widget {
             .accessoryRectangular,
             .systemSmall,
             .systemMedium,
-            .systemLarge,
+            .systemLarge
         ])
     }
 }

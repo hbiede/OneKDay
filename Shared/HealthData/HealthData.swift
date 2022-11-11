@@ -78,23 +78,23 @@ class HealthData {
     // MARK: - HKStatisticsCollectionQuery
 
     class func getHourlyMetricCount(
-            for identifier: HKQuantityTypeIdentifier,
-            completion: @escaping ([MetricEntry]
+        for identifier: HKQuantityTypeIdentifier,
+        completion: @escaping ([MetricEntry]
         ) -> Void) {
-            // Yesterday
-            let startDate = Calendar.current.date(
-                from: Calendar.current.dateComponents(
-                    [.day, .month, .year, .hour],
-                    from: Date(timeIntervalSinceNow: -86400)
-                )
-            )!
-            return activityMetrics(
-                startDate,
-                endDate: Date(),
-                anchorDate: startDate,
-                identifier: identifier,
-                completion: completion
+        // Yesterday
+        let startDate = Calendar.current.date(
+            from: Calendar.current.dateComponents(
+                [.day, .month, .year, .hour],
+                from: Date(timeIntervalSinceNow: -86400)
             )
+        )!
+        return activityMetrics(
+            startDate,
+            endDate: Date(),
+            anchorDate: startDate,
+            identifier: identifier,
+            completion: completion
+        )
     }
 
     class func activityMetrics(
@@ -118,30 +118,30 @@ class HealthData {
         )
 
         query.initialResultsHandler = { _, results, _ in
-          if let myResults = results {
-            var stepsArray: [MetricEntry] = []
-            myResults.enumerateStatistics(from: startDate, to: endDate) { statistics, _ in
-                if let quantity = statistics.sumQuantity() {
-                    stepsArray.append(
-                        MetricEntry(
-                            metric: quantity.doubleValue(
-                                for: preferredUnit(
-                                    for: identifier
-                                )!
-                            ),
-                            startDate: statistics.startDate,
-                            endDate: statistics.endDate,
-                            type: identifier
+            if let myResults = results {
+                var stepsArray: [MetricEntry] = []
+                myResults.enumerateStatistics(from: startDate, to: endDate) { statistics, _ in
+                    if let quantity = statistics.sumQuantity() {
+                        stepsArray.append(
+                            MetricEntry(
+                                metric: quantity.doubleValue(
+                                    for: preferredUnit(
+                                        for: identifier
+                                    )!
+                                ),
+                                startDate: statistics.startDate,
+                                endDate: statistics.endDate,
+                                type: identifier
+                            )
                         )
-                    )
+                    }
                 }
+                completion(stepsArray)
             }
-            completion(stepsArray)
-          }
         }
 
         healthStore.execute(query)
-      }
+    }
 }
 
 func getSampleType(for identifier: String) -> HKSampleType? {
@@ -155,5 +155,3 @@ func getSampleType(for identifier: String) -> HKSampleType? {
 
     return nil
 }
-
-

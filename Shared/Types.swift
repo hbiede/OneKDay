@@ -21,6 +21,6 @@ struct MetricEntry {
     var startDate: Date
 
     var endDate: Date
-    
+
     var type: HKQuantityTypeIdentifier
 }

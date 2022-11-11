@@ -9,10 +9,6 @@ import Foundation
 import SwiftUI
 import WidgetKit
 
-import Foundation
-import SwiftUI
-import WidgetKit
-
 struct SmallWidget: View {
     @State var stepCount: Int = 1
 
@@ -36,12 +32,11 @@ struct SmallWidget: View {
             }
             .padding(EdgeInsets(top: 16, leading: 0, bottom: 16, trailing: 0))
         }
-            .padding(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
-            .accessibilityLabel(formattedValue(
-                    Double(stepCount),
-                    typeIdentifier: .stepCount
-                )!
-            )
+        .padding(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
+        .accessibilityLabel(formattedValue(
+            Double(stepCount),
+            typeIdentifier: .stepCount
+        )!
+        )
     }
 }
-
