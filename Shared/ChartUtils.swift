@@ -9,7 +9,17 @@ import Foundation
 import SwiftUI
 
 func getGoalComparisonColor(_ entry: Int, goal: Int) -> Color {
-    return entry >= goal ? Color.green : Color.red
+    let doubleEntry = Double(entry)
+    let doubleGoal = Double(goal)
+    if doubleEntry >= doubleGoal {
+        return Color.green
+    } else if doubleEntry >= (2 / 3 * doubleGoal) {
+        return Color.yellow
+    } else if doubleEntry >= (1 / 3 * doubleGoal) {
+        return Color.orange
+    } else {
+        return Color.red
+    }
 }
 
 func formatDate(_ date: Date) -> String {

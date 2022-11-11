@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E21D0DD291E1996000298CB /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21D0DC291E1996000298CB /* AppIcon.swift */; };
+		3E21D0E0291E30B1000298CB /* ChangeIconViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21D0DF291E30B1000298CB /* ChangeIconViewModel.swift */; };
 		3E45C606291B5B100002B1C5 /* OneKDayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C605291B5B100002B1C5 /* OneKDayApp.swift */; };
 		3E45C608291B5B100002B1C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C607291B5B100002B1C5 /* ContentView.swift */; };
 		3E45C60A291B5B110002B1C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E45C609291B5B110002B1C5 /* Assets.xcassets */; };
@@ -57,6 +59,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3E21D0DC291E1996000298CB /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
+		3E21D0DF291E30B1000298CB /* ChangeIconViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeIconViewModel.swift; sourceTree = "<group>"; };
 		3E45C602291B5B100002B1C5 /* OneKDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneKDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E45C605291B5B100002B1C5 /* OneKDayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneKDayApp.swift; sourceTree = "<group>"; };
 		3E45C607291B5B100002B1C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E21D0DE291E309A000298CB /* AppIconHandler */ = {
+			isa = PBXGroup;
+			children = (
+				3E21D0DC291E1996000298CB /* AppIcon.swift */,
+				3E21D0DF291E30B1000298CB /* ChangeIconViewModel.swift */,
+			);
+			path = AppIconHandler;
+			sourceTree = "<group>";
+		};
 		3E45C5F9291B5B100002B1C5 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +139,7 @@
 		3E45C604291B5B100002B1C5 /* OneKDay */ = {
 			isa = PBXGroup;
 			children = (
+				3E21D0DE291E309A000298CB /* AppIconHandler */,
 				3E45C61B291B63A50002B1C5 /* Info.plist */,
 				3E6B9FBE291C7B38000A8808 /* Views */,
 				3E45C609291B5B110002B1C5 /* Assets.xcassets */,
@@ -296,7 +310,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E45C615291B5D620002B1C5 /* HealthData.swift in Sources */,
+				3E21D0E0291E30B1000298CB /* ChangeIconViewModel.swift in Sources */,
 				3E45C61A291B5E2C0002B1C5 /* HealthKitSupport+Strings.swift in Sources */,
+				3E21D0DD291E1996000298CB /* AppIcon.swift in Sources */,
 				3E45C61D291B6E8D0002B1C5 /* Types.swift in Sources */,
 				3E6B9FD3291C8CF6000A8808 /* Widget.intentdefinition in Sources */,
 				3E45C608291B5B100002B1C5 /* ContentView.swift in Sources */,
@@ -451,8 +467,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Original;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = OneKDay/OneKDay.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = $BUILD_NUMBER;
@@ -495,8 +512,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Original;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = OneKDay/OneKDay.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = $BUILD_NUMBER;
