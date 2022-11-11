@@ -12,7 +12,6 @@ import UIKit
 
 final class ChangeAppIconViewModel: ObservableObject {
 
-
     @Published private(set) var selectedAppIcon: AppIcon
 
     init() {

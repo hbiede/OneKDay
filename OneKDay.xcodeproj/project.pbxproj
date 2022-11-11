@@ -32,6 +32,7 @@
 		3EABCC75291C94C800EB680B /* FullWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABCC74291C94C800EB680B /* FullWidget.swift */; };
 		3EABCC78291C97F200EB680B /* ChartUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABCC77291C97F200EB680B /* ChartUtils.swift */; };
 		3EABCC79291C97F500EB680B /* ChartUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABCC77291C97F200EB680B /* ChartUtils.swift */; };
+		3EAD98A9291EC35600F9F222 /* AppIconSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD98A8291EC35600F9F222 /* AppIconSelectorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		3EABCC72291C94BD00EB680B /* SmallWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidget.swift; sourceTree = "<group>"; };
 		3EABCC74291C94C800EB680B /* FullWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidget.swift; sourceTree = "<group>"; };
 		3EABCC77291C97F200EB680B /* ChartUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUtils.swift; sourceTree = "<group>"; };
+		3EAD98A8291EC35600F9F222 /* AppIconSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSelectorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				3E45C605291B5B100002B1C5 /* OneKDayApp.swift */,
 				3E45C607291B5B100002B1C5 /* ContentView.swift */,
 				3E45C61E291B752A0002B1C5 /* SettingsSheet.swift */,
+				3EAD98A8291EC35600F9F222 /* AppIconSelectorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				3E45C61D291B6E8D0002B1C5 /* Types.swift in Sources */,
 				3E6B9FD3291C8CF6000A8808 /* Widget.intentdefinition in Sources */,
 				3E45C608291B5B100002B1C5 /* ContentView.swift in Sources */,
+				3EAD98A9291EC35600F9F222 /* AppIconSelectorView.swift in Sources */,
 				3E45C61F291B752A0002B1C5 /* SettingsSheet.swift in Sources */,
 				3EABCC79291C97F500EB680B /* ChartUtils.swift in Sources */,
 				3E45C606291B5B100002B1C5 /* OneKDayApp.swift in Sources */,

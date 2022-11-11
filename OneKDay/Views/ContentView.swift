@@ -138,12 +138,8 @@ struct ContentView: View {
             return getGoalComparisonColor(Int(entry), goal: stepGoal)
         } else {
             let metricList = metricCounts[metricOptions[currentMetricIndex], default: []]
-            let minMetric = metricList.min {
-                $1.metric < $1.metric
-            }?.metric ?? 0
-            let maxMetric = metricList.max {
-                $1.metric < $1.metric
-            }?.metric ?? 0.5
+            let minMetric = metricList.min(by: <)?.metric ?? 0
+            let maxMetric = metricList.max(by: <)?.metric ?? 0.5
             let sectionSize = 1 / 3 * (maxMetric - minMetric)
             let lowerBound = minMetric + sectionSize
             let upperBound = maxMetric - sectionSize

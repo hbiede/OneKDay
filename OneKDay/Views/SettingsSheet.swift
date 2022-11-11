@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct SettingsSheet: View {
+    let userDefaults = UserDefaults()
+
     @Environment(\.dismiss) private var dismiss
 
     @StateObject var viewModel = ChangeAppIconViewModel()
@@ -29,34 +31,21 @@ struct SettingsSheet: View {
                             .onDisappear(perform: submitStepGoal)
                             .keyboardType(.numberPad)
                     }
-                } header: {
-                    Text("Metrics")
                 }
 
                 Section {
-                    ForEach(AppIcon.allCases) { icon in
+                    NavigationLink(
+                        destination: AppIconSelector().environmentObject(viewModel)
+                    ) {
                         HStack {
-                            Image(uiImage: icon.preview)
+                            Image(uiImage: viewModel.selectedAppIcon.preview)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 60, height: 60)
-                                .cornerRadius(12)
-                            Text(icon.description)
-                            if viewModel.selectedAppIcon == icon {
-                                Spacer()
-                                Image(systemName: "checkmark.circle.fill")
-                                    .foregroundColor(.green)
-                                    .font(.headline)
-                            }
-                        }
-                        .onTapGesture {
-                            withAnimation {
-                                viewModel.updateAppIcon(to: icon)
-                            }
+                                .frame(width: 20, height: 20)
+                                .cornerRadius(4)
+                            Text("App Icon")
                         }
                     }
-                } header: {
-                    Text("App Icon")
                 }
             }
             .navigationTitle("Settings")
@@ -73,7 +62,7 @@ struct SettingsSheet: View {
             .toolbarRole(.navigationStack)
         }
         .onAppear {
-            let stepGoalDefault = UserDefaults().integer(forKey: STEP_GOAL_KEY)
+            let stepGoalDefault = userDefaults.integer(forKey: STEP_GOAL_KEY)
             stepGoal = "\(stepGoalDefault == 0 ? 1000 : stepGoalDefault)"
         }
     }
@@ -84,7 +73,10 @@ struct SettingsSheet: View {
     }
 
     func submitStepGoal() {
-        UserDefaults().set(Int(stepGoal), forKey: STEP_GOAL_KEY)
-        print("New Goal: \(stepGoal)")
+        let stepGoalNumber = Int(stepGoal)
+        if stepGoalNumber != userDefaults.integer(forKey: STEP_GOAL_KEY) {
+            userDefaults.set(stepGoalNumber, forKey: STEP_GOAL_KEY)
+            print("New Goal: \(String(describing: stepGoalNumber))")
+        }
     }
 }
