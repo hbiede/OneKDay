@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Candy-Preview.png",
+      "filename" : "Candy-Dark-Preview.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Candy-Preview@2x.png",
+      "filename" : "Candy-Dark-Preview@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Candy-Preview@3x.png",
+      "filename" : "Candy-Dark-Preview@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
