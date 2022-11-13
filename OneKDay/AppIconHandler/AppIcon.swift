@@ -32,6 +32,7 @@ enum AppIcon: String, CaseIterable, Identifiable {
     case invertedRed = "Inverted-Red"
     case invertedRedDark = "Inverted-Red-Dark"
 
+    case candy = "Candy"
     case excite = "Excite"
     case fluid = "Fluid"
     case friendly = "Friendly"
@@ -119,6 +120,7 @@ let appIconSections: [String: [AppIcon]] = [
         .invertedRedDark
     ],
     "Stripes": [
+        .candy,
         .excite,
         .fluid,
         .friendly,
