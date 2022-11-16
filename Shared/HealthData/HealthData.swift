@@ -76,11 +76,10 @@ class HealthData {
     }
 
     // MARK: - HKStatisticsCollectionQuery
-
     class func getHourlyMetricCount(
         for identifier: HKQuantityTypeIdentifier,
-        completion: @escaping ([MetricEntry]
-        ) -> Void) {
+        completion: @escaping ([MetricEntry]) -> Void
+    ) {
         // Yesterday
         let startDate = Calendar.current.date(
             from: Calendar.current.dateComponents(

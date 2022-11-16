@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E0016A9292485CF0050C817 /* OneKDayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0016A8292485CF0050C817 /* OneKDayUITests.swift */; };
+		3E0016AB292485CF0050C817 /* OneKDayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0016AA292485CF0050C817 /* OneKDayUITestsLaunchTests.swift */; };
+		3E0016B2292486C40050C817 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0016B1292486C40050C817 /* SnapshotHelper.swift */; };
 		3E21D0DD291E1996000298CB /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21D0DC291E1996000298CB /* AppIcon.swift */; };
 		3E21D0E0291E30B1000298CB /* ChangeIconViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21D0DF291E30B1000298CB /* ChangeIconViewModel.swift */; };
 		3E45C606291B5B100002B1C5 /* OneKDayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C605291B5B100002B1C5 /* OneKDayApp.swift */; };
@@ -36,6 +39,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3E0016AC292485CF0050C817 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E45C5FA291B5B100002B1C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E45C601291B5B100002B1C5;
+			remoteInfo = OneKDay;
+		};
 		3E6B9FD4291C8CF6000A8808 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3E45C5FA291B5B100002B1C5 /* Project object */;
@@ -60,6 +70,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3E0016A6292485CF0050C817 /* OneKDayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OneKDayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E0016A8292485CF0050C817 /* OneKDayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneKDayUITests.swift; sourceTree = "<group>"; };
+		3E0016AA292485CF0050C817 /* OneKDayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneKDayUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3E0016B1292486C40050C817 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		3E21D0DC291E1996000298CB /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		3E21D0DF291E30B1000298CB /* ChangeIconViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeIconViewModel.swift; sourceTree = "<group>"; };
 		3E45C602291B5B100002B1C5 /* OneKDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneKDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +103,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3E0016A3292485CF0050C817 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3E45C5FF291B5B100002B1C5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -108,6 +129,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E0016A7292485CF0050C817 /* OneKDayUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3E0016B1292486C40050C817 /* SnapshotHelper.swift */,
+				3E0016A8292485CF0050C817 /* OneKDayUITests.swift */,
+				3E0016AA292485CF0050C817 /* OneKDayUITestsLaunchTests.swift */,
+			);
+			path = OneKDayUITests;
+			sourceTree = "<group>";
+		};
 		3E21D0DE291E309A000298CB /* AppIconHandler */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +155,7 @@
 				3EABCC71291C93D800EB680B /* Shared */,
 				3E45C604291B5B100002B1C5 /* OneKDay */,
 				3E6B9FC9291C8CF5000A8808 /* Widget */,
+				3E0016A7292485CF0050C817 /* OneKDayUITests */,
 				3E6B9FC4291C8CF5000A8808 /* Frameworks */,
 				3E45C603291B5B100002B1C5 /* Products */,
 			);
@@ -134,6 +166,7 @@
 			children = (
 				3E45C602291B5B100002B1C5 /* OneKDay.app */,
 				3E6B9FC3291C8CF5000A8808 /* WidgetExtension.appex */,
+				3E0016A6292485CF0050C817 /* OneKDayUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -215,6 +248,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3E0016A5292485CF0050C817 /* OneKDayUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E0016B0292485CF0050C817 /* Build configuration list for PBXNativeTarget "OneKDayUITests" */;
+			buildPhases = (
+				3E0016A2292485CF0050C817 /* Sources */,
+				3E0016A3292485CF0050C817 /* Frameworks */,
+				3E0016A4292485CF0050C817 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3E0016AD292485CF0050C817 /* PBXTargetDependency */,
+			);
+			name = OneKDayUITests;
+			productName = OneKDayUITests;
+			productReference = 3E0016A6292485CF0050C817 /* OneKDayUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		3E45C601291B5B100002B1C5 /* OneKDay */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E45C611291B5B110002B1C5 /* Build configuration list for PBXNativeTarget "OneKDay" */;
@@ -261,6 +312,10 @@
 				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
+					3E0016A5292485CF0050C817 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 3E45C601291B5B100002B1C5;
+					};
 					3E45C601291B5B100002B1C5 = {
 						CreatedOnToolsVersion = 14.1;
 					};
@@ -284,11 +339,19 @@
 			targets = (
 				3E45C601291B5B100002B1C5 /* OneKDay */,
 				3E6B9FC2291C8CF5000A8808 /* WidgetExtension */,
+				3E0016A5292485CF0050C817 /* OneKDayUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3E0016A4292485CF0050C817 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3E45C600291B5B100002B1C5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -308,6 +371,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3E0016A2292485CF0050C817 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E0016AB292485CF0050C817 /* OneKDayUITestsLaunchTests.swift in Sources */,
+				3E0016A9292485CF0050C817 /* OneKDayUITests.swift in Sources */,
+				3E0016B2292486C40050C817 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3E45C5FE291B5B100002B1C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -346,6 +419,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3E0016AD292485CF0050C817 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E45C601291B5B100002B1C5 /* OneKDay */;
+			targetProxy = 3E0016AC292485CF0050C817 /* PBXContainerItemProxy */;
+		};
 		3E6B9FD5291C8CF6000A8808 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3E6B9FC2291C8CF5000A8808 /* WidgetExtension */;
@@ -354,11 +432,56 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3E0016AE292485CF0050C817 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 69RV8YV62P;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hbiede.OneKDayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = OneKDay;
+			};
+			name = Debug;
+		};
+		3E0016AF292485CF0050C817 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 69RV8YV62P;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hbiede.OneKDayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = OneKDay;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		3E45C60F291B5B110002B1C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUILD_NUMBER = 1;
+				BUILD_NUMBER = 2;
 				BUILD_VERSION = 1.0.0;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -418,7 +541,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUILD_NUMBER = 1;
+				BUILD_NUMBER = 2;
 				BUILD_VERSION = 1.0.0;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -485,6 +608,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "OneK Day";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Used to access step count and distance traveled";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "No health data is written by this app";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -530,6 +654,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "OneK Day";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Used to access step count and distance traveled";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "No health data is written by this app";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -621,6 +746,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3E0016B0292485CF0050C817 /* Build configuration list for PBXNativeTarget "OneKDayUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E0016AE292485CF0050C817 /* Debug */,
+				3E0016AF292485CF0050C817 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3E45C5FD291B5B100002B1C5 /* Build configuration list for PBXProject "OneKDay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

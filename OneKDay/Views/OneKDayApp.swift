@@ -27,6 +27,7 @@ struct OneKDayApp: App {
             } else {
                 VStack {}
                     .onAppear {
+                        print(UIDevice.current.userInterfaceIdiom != .phone)
                         WidgetCenter.shared.reloadTimelines(ofKind: STEP_COUNT_WIDGET_KIND)
                         HealthData.requestHealthDataAccessIfNeeded { success in
                             print("didLoadHealthData: \(success)")

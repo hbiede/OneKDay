@@ -168,12 +168,45 @@ struct ContentView: View {
         animateData()
     }
 
-    func loadMetrics(for indentifier: HKQuantityTypeIdentifier) {
-        if metricTotals[indentifier, default: 0].isZero {
+    func loadMetrics(for identifier: HKQuantityTypeIdentifier) {
+        #if DEBUG
+        let components = Calendar.current.dateComponents([.day, .month, .year], from: Date())
+        var result: [MetricEntry] = []
+        for i in 1...24 {
+            let startDate = Date(timeIntervalSinceNow: -3600 * Double(i))
+            let testComponents = Calendar.current.dateComponents([.hour], from: startDate)
+            var stepCount = Double.random(in: 800...1500)
+            if testComponents.hour! == 7 || testComponents.hour! == 21 || testComponents.hour! == 22 {
+                stepCount = Double.random(in: 200...500)
+            } else if testComponents.hour! < 7 || testComponents.hour! > 22 {
+                stepCount = Double.random(in: 0...50)
+            }
+            result.append(
+                MetricEntry(
+                    metric: stepCount,
+                    startDate: startDate,
+                    endDate: Date(timeIntervalSinceNow: -3600 * (Double(i) + 1)),
+                    type: identifier
+                )
+            )
+        }
+        metricCounts[identifier] = result
+        metricTotals[identifier] = result.reduce(0.0) { acc, item in
+            let testComponents = Calendar.current.dateComponents([.day, .month, .year], from: item.endDate)
+            if testComponents.day! == components.day! &&
+                testComponents.month! == components.month! &&
+                testComponents.year! == components.year! {
+                return acc + item.metric
+            } else {
+                return acc
+            }
+        }
+        #else
+        if metricTotals[identifier, default: 0].isZero {
             let components = Calendar.current.dateComponents([.day, .month, .year], from: Date())
-            HealthData.getHourlyMetricCount(for: indentifier) { result in
-                metricCounts[indentifier] = result
-                metricTotals[indentifier] = result.reduce(0.0) { acc, item in
+            HealthData.getHourlyMetricCount(for: identifier) { result in
+                metricCounts[identifier] = result
+                metricTotals[identifier] = result.reduce(0.0) { acc, item in
                     let testComponents = Calendar.current.dateComponents([.day, .month, .year], from: item.endDate)
                     if testComponents.day! == components.day! &&
                         testComponents.month! == components.month! &&
@@ -185,6 +218,7 @@ struct ContentView: View {
                 }
             }
         }
+        #endif
     }
 
     func animateData() {
