@@ -20,7 +20,10 @@ struct OneKDayApp: App {
     @ViewBuilder
     var body: some Scene {
         WindowGroup {
-            if canReadHealthData {
+            if UIDevice.current.model.contains("iPad") {
+                Text("This app does not support iPad. Please install from an iPhone")
+                    .font(.largeTitle)
+            } else if canReadHealthData {
                 ContentView()
             } else if hasCheckedHealthAccess {
                 Text("Enable access to health data to use OneK Day")
