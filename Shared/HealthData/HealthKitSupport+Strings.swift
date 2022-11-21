@@ -66,11 +66,11 @@ func getUnitSuffix(for unit: HKUnit?) -> String? {
     }
     switch unit! {
     case .count():
-        return "steps"
+        return NSLocalizedString("steps-unit-of-measure", comment: "UOM for steps")
     case .mile():
-        return "mi"
+        return NSLocalizedString("miles-unit-of-measure", comment: "UOM for miles")
     case .meter():
-        return "m"
+        return NSLocalizedString("meters-unit-of-measure", comment: "UOM for meters")
     default:
         return nil
     }

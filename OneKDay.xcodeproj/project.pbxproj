@@ -27,6 +27,8 @@
 		3E6B9FD2291C8CF6000A8808 /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B9FCE291C8CF6000A8808 /* Widget.intentdefinition */; };
 		3E6B9FD3291C8CF6000A8808 /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B9FCE291C8CF6000A8808 /* Widget.intentdefinition */; };
 		3E6B9FD6291C8CF6000A8808 /* WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3E6B9FC3291C8CF5000A8808 /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3E9D1A17292BFAA500594281 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E9D1A1A292BFAA500594281 /* Localizable.strings */; };
+		3E9D1A18292BFAA500594281 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E9D1A1A292BFAA500594281 /* Localizable.strings */; };
 		3EABCC6D291C92DA00EB680B /* WidgetBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABCC6B291C92BB00EB680B /* WidgetBaseView.swift */; };
 		3EABCC6E291C93BF00EB680B /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C61C291B6E8D0002B1C5 /* Types.swift */; };
 		3EABCC6F291C93BF00EB680B /* HealthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C614291B5D620002B1C5 /* HealthData.swift */; };
@@ -95,6 +97,8 @@
 		3E6B9FCF291C8CF6000A8808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E6B9FD1291C8CF6000A8808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E6B9FDB291C8D43000A8808 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
+		3E9D1A19292BFAA500594281 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3E9D1A1B292BFAF000594281 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3EABCC6B291C92BB00EB680B /* WidgetBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBaseView.swift; sourceTree = "<group>"; };
 		3EABCC72291C94BD00EB680B /* SmallWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidget.swift; sourceTree = "<group>"; };
 		3EABCC74291C94C800EB680B /* FullWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidget.swift; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 				3E45C616291B5E020002B1C5 /* HealthData */,
 				3E45C61C291B6E8D0002B1C5 /* Types.swift */,
 				3EABCC77291C97F200EB680B /* ChartUtils.swift */,
+				3E9D1A1A292BFAA500594281 /* Localizable.strings */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 3E45C5F9291B5B100002B1C5;
 			productRefGroup = 3E45C603291B5B100002B1C5 /* Products */;
@@ -357,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E45C60A291B5B110002B1C5 /* Assets.xcassets in Resources */,
+				3E9D1A17292BFAA500594281 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E6B9FD0291C8CF6000A8808 /* Assets.xcassets in Resources */,
+				3E9D1A18292BFAA500594281 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +439,18 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		3E9D1A1A292BFAA500594281 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3E9D1A19292BFAA500594281 /* en */,
+				3E9D1A1B292BFAF000594281 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		3E0016AE292485CF0050C817 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -481,10 +501,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUILD_NUMBER = 4;
-				BUILD_VERSION = 1.0.0;
+				BUILD_NUMBER = 8;
+				BUILD_VERSION = 1.1.0;
+				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ANALYZER_OSOBJECT_C_STYLE_CAST = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -533,7 +558,10 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = targeted;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -541,10 +569,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUILD_NUMBER = 4;
-				BUILD_VERSION = 1.0.0;
+				BUILD_NUMBER = 8;
+				BUILD_VERSION = 1.1.0;
+				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ANALYZER_OSOBJECT_C_STYLE_CAST = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -585,8 +618,12 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = PROD;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = targeted;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

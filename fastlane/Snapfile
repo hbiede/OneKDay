@@ -8,7 +8,8 @@ devices([
 ])
 
 languages([
-  "en-US"
+  "en-US",
+  "es-MX"
 ])
 
 # The name of the scheme which contains the UI Tests

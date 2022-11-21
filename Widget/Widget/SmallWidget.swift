@@ -33,10 +33,11 @@ struct SmallWidget: View {
             .padding(EdgeInsets(top: 16, leading: 0, bottom: 16, trailing: 0))
         }
         .padding(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
-        .accessibilityLabel(formattedValue(
-            Double(stepCount),
-            typeIdentifier: .stepCount
-        )!
+        .accessibilityLabel(
+            formattedValue(
+                Double(stepCount),
+                typeIdentifier: .stepCount
+            )!
         )
     }
 }

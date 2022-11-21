@@ -31,21 +31,38 @@ struct ContentView: View {
         let metricID = metricOptions[currentMetricIndex]
         let currentMetricList = metricCounts[metricID, default: []]
         if !HKHealthStore.isHealthDataAvailable() {
-            Text("Enable access to step count")
+            Text(
+                NSLocalizedString(
+                    "no-health-access",
+                    comment: "Text for when the app does not have access to health data"
+                )
+            )
         } else {
             NavigationView {
                 VStack {
                     if !currentMetricList.isEmpty {
                         Chart(currentMetricList, id: \.startDate) {
                             BarMark(
-                                x: .value("Time", $0.startDate, unit: .hour, calendar: Calendar.current),
+                                x: .value(
+                                    NSLocalizedString(
+                                        "time-value-label",
+                                        comment: "The lael for the time axis of the graph"
+                                    ),
+                                    $0.startDate,
+                                    unit: .hour,
+                                    calendar: Calendar.current
+                                ),
                                 y: .value(
                                     getUnitSuffix(
                                         for: preferredUnit(
                                             for: metricID
                                         )
-                                    )?.capitalized(with: Locale.current) ?? "Measurement",
-                                    pow($0.metric, dataAnimationPower)
+                                    )?.capitalized(with: Locale.current) ??
+                                    NSLocalizedString(
+                                        "unknown-measurement-unit",
+                                        comment: "Default measurement unit if the real one is unknown"
+                                    ),
+                                    max(pow($0.metric, dataAnimationPower), 0)
                                 )
                             )
                             .foregroundStyle(getBarGraphStyle(for: $0.metric))
@@ -56,9 +73,20 @@ struct ContentView: View {
                             ) ?? "X")
                             if currentMetricIndex == 0 {
                                 RuleMark(
-                                    y: .value("Goal", stepGoal)
+                                    y: .value(
+                                            NSLocalizedString(
+                                                "goal-a11y-label",
+                                                comment: "A11y label for the goal line"
+                                            ),
+                                            stepGoal
+                                    )
                                 )
-                                .accessibilityLabel("Goal")
+                                .accessibilityLabel(
+                                    NSLocalizedString(
+                                        "goal-a11y-label",
+                                        comment: "A11y label for the goal line"
+                                    )
+                                )
                                 .accessibilityValue(formattedValue(
                                     Double(stepGoal),
                                     typeIdentifier: metricID
@@ -122,7 +150,15 @@ struct ContentView: View {
                             typeIdentifier: metricID
                         )
                         if let lastHourMetricString = lastHourMetricStringOpt {
-                            Text("\(lastHourMetricString) this hour")
+                            Text(
+                                String.localizedStringWithFormat(
+                                    NSLocalizedString(
+                                        "this-hour-subtitle",
+                                        comment: "Subtitle explaining the metric count achieved this hour   (e.g., '1234 steps this hour')"
+                                    ),
+                                    lastHourMetricString
+                                )
+                            )
                                 .multilineTextAlignment(.center)
                                 .font(.title2)
                         }
@@ -165,16 +201,23 @@ struct ContentView: View {
     func onAppear() {
         loadMetrics(for: metricOptions[currentMetricIndex])
         setValuesFromDefault()
-        animateData()
+    }
+
+    func animateData() {
+        dataAnimationPower = 10
+        withAnimation(.linear(duration: 0.5)) {
+            dataAnimationPower = 1
+        }
     }
 
     func loadMetrics(for identifier: HKQuantityTypeIdentifier) {
         #if DEBUG
-        let components = Calendar.current.dateComponents([.day, .month, .year], from: Date())
+        let components = Calendar.current.dateComponents([.hour, .day, .month, .year], from: Date(timeIntervalSinceNow: 3600))
         var result: [MetricEntry] = []
-        for i in 1...24 {
-            let startDate = Date(timeIntervalSinceNow: -3600 * Double(i))
+        for i in (1...24).reversed() {
+            let startDate = Date(timeInterval: -3600 * Double(i), since: Calendar.current.date(from: components)!)
             let testComponents = Calendar.current.dateComponents([.hour], from: startDate)
+            print(testComponents.hour!)
             var stepCount = Double.random(in: 800...1500)
             if testComponents.hour! == 7 || testComponents.hour! == 21 || testComponents.hour! == 22 {
                 stepCount = Double.random(in: 200...500)
@@ -201,6 +244,7 @@ struct ContentView: View {
                 return acc
             }
         }
+        animateData()
         #else
         if metricTotals[identifier, default: 0].isZero {
             let components = Calendar.current.dateComponents([.day, .month, .year], from: Date())
@@ -216,16 +260,10 @@ struct ContentView: View {
                         return acc
                     }
                 }
+                animateData()
             }
         }
         #endif
-    }
-
-    func animateData() {
-        dataAnimationPower = 10
-        withAnimation(.easeInOut(duration: 1)) {
-            dataAnimationPower = 1
-        }
     }
 }
 

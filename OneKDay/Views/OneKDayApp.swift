@@ -21,25 +21,55 @@ struct OneKDayApp: App {
     var body: some Scene {
         WindowGroup {
             if UIDevice.current.model.contains("iPad") {
-                Text("This app does not support iPad. Please install from an iPhone")
+                Text(
+                    LocalizedStringResource(
+                        "ipad-warning",
+                        comment: "Text to prevent iPads from erroring"
+                    )
+                )
                     .font(.largeTitle)
             } else if canReadHealthData {
                 ContentView()
             } else if hasCheckedHealthAccess {
-                Text("Enable access to health data to use OneK Day")
+                Text(
+                    LocalizedStringResource(
+                        "no-access-text",
+                        comment: "Warning text for lack of health data access"
+                    )
+                )
             } else {
-                VStack {}
-                    .onAppear {
-                        print(UIDevice.current.userInterfaceIdiom != .phone)
-                        WidgetCenter.shared.reloadTimelines(ofKind: STEP_COUNT_WIDGET_KIND)
-                        HealthData.requestHealthDataAccessIfNeeded { success in
-                            print("didLoadHealthData: \(success)")
-                            hasCheckedHealthAccess.toggle()
-                            if success {
-                                canReadHealthData.toggle()
-                            }
-                        }
+                VStack {
+                    Button{
+                        requestHealthAccess()
+                    } label: {
+                        Text(
+                            LocalizedStringResource(
+                                "enable-health-button-text",
+                                comment: "Button to enable health data access"
+                            )
+                        )
+                            .foregroundColor(.white)
                     }
+                    .padding()
+                    .background(Color.green)
+                    .clipShape(Capsule())
+                }
+                    .onAppear {
+                        requestHealthAccess()
+                    }
+            }
+        }
+    }
+
+    @MainActor
+    func requestHealthAccess() {
+        print(UIDevice.current.userInterfaceIdiom != .phone)
+        WidgetCenter.shared.reloadTimelines(ofKind: STEP_COUNT_WIDGET_KIND)
+        HealthData.requestHealthDataAccessIfNeeded { success in
+            print("didLoadHealthData: \(success)")
+            hasCheckedHealthAccess.toggle()
+            if success {
+                canReadHealthData.toggle()
             }
         }
     }

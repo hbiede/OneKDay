@@ -62,7 +62,12 @@ struct StepCountWidget: Widget {
             StepCountWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("OneK Day")
-        .description("Get your steps in for the hour")
+        .description(
+            NSLocalizedString(
+                "widget-desc",
+                comment: "The description for the widget as viewed from the widget add screen"
+            )
+        )
         .supportedFamilies([
             .accessoryCircular,
             .accessoryInline,

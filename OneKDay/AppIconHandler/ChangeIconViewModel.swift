@@ -4,7 +4,7 @@
 //
 //  Created by Hundter Biede on 11/11/22.
 //
-// Taken from https://www.avanderlee.com/swift/alternate-app-icon-configuration-in-xcode/
+//  Adapted from https://www.avanderlee.com/swift/alternate-app-icon-configuration-in-xcode/
 //
 
 import Foundation

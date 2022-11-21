@@ -29,7 +29,7 @@ class HealthData {
         .distanceWalkingRunning
     ]
 
-    private static var allHealthDataTypes: [HKSampleType] =
+    private static let allHealthDataTypes: [HKSampleType] =
         measurableHealthMetrics.compactMap { getSampleType(for: $0.rawValue) }
 
     // MARK: - Authorization
@@ -55,9 +55,9 @@ class HealthData {
     class func requestHealthDataAccessIfNeeded(toShare shareTypes: Set<HKSampleType>?,
                                                read readTypes: Set<HKObjectType>?,
                                                completion: @escaping (_ success: Bool) -> Void) {
-        if !HKHealthStore.isHealthDataAvailable() {
-            fatalError("Health data is not available!")
-        }
+//        if !HKHealthStore.isHealthDataAvailable() {
+//            fatalError("Health data is not available!")
+//        }
 
         print("Requesting HealthKit authorization...")
         healthStore.requestAuthorization(toShare: shareTypes, read: readTypes) { (success, error) in
