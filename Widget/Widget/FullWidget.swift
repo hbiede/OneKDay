@@ -15,10 +15,11 @@ struct FullWidget: View {
 
     var body: some View {
         if metrics.isEmpty {
-            Text(formattedValue(
-                0,
-                typeIdentifier: .stepCount
-            )!
+            Text(
+                formattedValue(
+                    0,
+                    typeIdentifier: .stepCount
+                )!
             )
             .font(.largeTitle)
         } else {

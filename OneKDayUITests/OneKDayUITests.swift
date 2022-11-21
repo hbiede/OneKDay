@@ -7,7 +7,7 @@
 
 import XCTest
 
-class WhatsNextUITests: XCTestCase {
+class OneKDayUITests: XCTestCase {
 
     override func setUpWithError() throws {
         super.setUp()
@@ -27,8 +27,6 @@ class WhatsNextUITests: XCTestCase {
         UserDefaults.standard.set(lang, forKey: "app_lang")
 
         snapshot("1Main")
-
-        XCTAssertGreaterThan(app.cells.count, 0)
     }
     // swiftlint:enable function_body_length
 

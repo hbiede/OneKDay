@@ -26,7 +26,7 @@ struct SmallWidget: View {
                     .foregroundColor(.white)
                     .font(.system(size: 500))
                     .minimumScaleFactor(0.01)
-                Text(getUnitSuffix(for: .count())!.capitalized)
+                Text(getUnitSuffix(for: .count(), with: Double(stepCount))!.capitalized)
                     .foregroundColor(.white)
                     .font(.title3)
             }

@@ -1,0 +1,52 @@
+/* 
+ * Localizable.strings
+ * OneKDay
+ *
+ * Created by Hundter Biede on 11/21/22.
+ */
+
+// MARK: Main Screen
+/* Button to enable health data access */
+"enable-health-button-text" = "Aktivieren Sie den Zugriff auf Gesundheitsdaten";
+/* Text to prevent iPads from erroring */
+"ipad-warning" = "Diese App unterstützt kein iPad. Bitte von einem iPhone installieren";
+/* Warning text for lack of health data access */
+"no-access-text" = "Aktivieren Sie den Zugriff auf Gesundheitsdaten, um OneK Day zu verwenden"; // Note, Do not translate "OneK Day"
+
+
+// MARK: Content View
+/* A11y label for the goal line */
+"goal-a11y-label" = "Tor";
+/* Text for when the app does not have access to health data */
+"no-health-access" = "Aktivieren Sie den Zugriff auf Gesundheitsdaten";
+/* Subtitle explaining the metric count achieved this hour   (e.g., '1234 steps this hour') */
+"this-hour-subtitle" = "%@ in dieser Stunde";
+/* The lael for the time axis of the graph */
+"time-value-label" = "Zeit";
+/* Default measurement unit if the real one is unknown */
+"unknown-measurement-unit" = "Messung";
+
+// MARK: Settings View
+/* App Icon setting title */
+"app-icon-setting-title" = "App-Symbol";
+/* Label for the back button */
+"back-button-label" = "Zurück";
+/* The header for the settings modal */
+"settings-modal-title" = "Einstellungen";
+/* Setting title for the goal step count per hour */
+"step-goal-setting-title" = "Schrittziel pro Stunde";
+
+// MARK: Units
+/* UOM for steps */
+"steps-unit-of-measure" = "schritt";
+"steps-unit-of-measure-plural" = "schritte";
+/* UOM for miles */
+"miles-unit-of-measure" = "meile";
+"miles-unit-of-measure-plural" = "meilen";
+/* UOM for meters */
+"meters-unit-of-measure" = "meter";
+"meters-unit-of-measure-plural" = "meter";
+
+// MARK: Widget
+/* The description for the widget as viewed from the widget add screen */
+"widget-desc" = "Holen Sie sich Ihre Schritte für die Stunde";

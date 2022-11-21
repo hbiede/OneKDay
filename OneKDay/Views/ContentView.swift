@@ -56,7 +56,8 @@ struct ContentView: View {
                                     getUnitSuffix(
                                         for: preferredUnit(
                                             for: metricID
-                                        )
+                                        ),
+                                        with: $0.metric
                                     )?.capitalized(with: Locale.current) ??
                                     NSLocalizedString(
                                         "unknown-measurement-unit",

@@ -18,7 +18,7 @@ func formattedValue(_ value: Double, typeIdentifier: HKQuantityTypeIdentifier) -
     guard
         let unit = preferredUnit(for: typeIdentifier),
         let roundedValue = getRoundedValue(for: value, with: unit),
-        let unitSuffix = getUnitSuffix(for: unit)
+        let unitSuffix = getUnitSuffix(for: unit, with: value)
     else {
         return nil
     }
@@ -48,7 +48,6 @@ private func getRoundedValue(for value: Double, with unit: HKUnit) -> String? {
 }
 
 // MARK: - Units
-
 func preferredUnit(for identifier: HKQuantityTypeIdentifier) -> HKUnit? {
     switch identifier {
     case .stepCount:
@@ -60,17 +59,23 @@ func preferredUnit(for identifier: HKQuantityTypeIdentifier) -> HKUnit? {
     }
 }
 
-func getUnitSuffix(for unit: HKUnit?) -> String? {
+func getUnitSuffix(for unit: HKUnit?, with count: Double) -> String? {
     if unit == nil {
         return nil
     }
     switch unit! {
     case .count():
-        return NSLocalizedString("steps-unit-of-measure", comment: "UOM for steps")
+        return count == 1
+            ? NSLocalizedString("steps-unit-of-measure", comment: "UOM for steps")
+            : NSLocalizedString("steps-unit-of-measure-plural", comment: "UOM for steps (plural)")
     case .mile():
-        return NSLocalizedString("miles-unit-of-measure", comment: "UOM for miles")
+        return count >= 1 && count < 2
+            ? NSLocalizedString("miles-unit-of-measure", comment: "UOM for miles")
+            : NSLocalizedString("miles-unit-of-measure-plural", comment: "UOM for miles (plural)")
     case .meter():
-        return NSLocalizedString("meters-unit-of-measure", comment: "UOM for meters")
+        return count >= 1 && count < 2
+            ? NSLocalizedString("meters-unit-of-measure", comment: "UOM for meters")
+            : NSLocalizedString("meters-unit-of-measure-plural", comment: "UOM for meters (plural)")
     default:
         return nil
     }

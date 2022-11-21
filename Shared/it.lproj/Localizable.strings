@@ -7,39 +7,39 @@
 
 // MARK: Main Screen
 /* Button to enable health data access */
-"enable-health-button-text" = "Enable Access to Health Data";
+"enable-health-button-text" = "Abilita L'Accesso ai Dati dalla Salute";
 /* Text to prevent iPads from erroring */
-"ipad-warning" = "This app does not support iPad. Please install from an iPhone";
+"ipad-warning" = "Questa app non supporta iPad. Si prega di installare da un iPhone";
 /* Warning text for lack of health data access */
-"no-access-text" = "Enable access to health data to use OneK Day"; // Note, Do not translate "OneK Day"
+"no-access-text" = "Abilita l'accesso ai dati da Health per utilizzare OneK Day"; // Note, Do not translate "OneK Day"
 
 
 // MARK: Content View
 /* A11y label for the goal line */
-"goal-a11y-label" = "Goal";
+"goal-a11y-label" = "Obiettivo";
 /* Text for when the app does not have access to health data */
-"no-health-access" = "Enable access to health data";
+"no-health-access" = "Abilita l'accesso ai dati dalla Salute";
 /* Subtitle explaining the metric count achieved this hour   (e.g., '1234 steps this hour') */
-"this-hour-subtitle" = "%@ this hour";
+"this-hour-subtitle" = "%@ quest'ora";
 /* The lael for the time axis of the graph */
-"time-value-label" = "Time";
+"time-value-label" = "Volta";
 /* Default measurement unit if the real one is unknown */
-"unknown-measurement-unit" = "Measurement";
+"unknown-measurement-unit" = "Misurazione";
 
 // MARK: Settings View
 /* App Icon setting title */
-"app-icon-setting-title" = "App Icon";
+"app-icon-setting-title" = "Icona dell'app";
 /* Label for the back button */
-"back-button-label" = "Back";
+"back-button-label" = "Indietro";
 /* The header for the settings modal */
-"settings-modal-title" = "Settings";
+"settings-modal-title" = "Impostazioni";
 /* Setting title for the goal step count per hour */
-"step-goal-setting-title" = "Step Goal/Hour";
+"step-goal-setting-title" = "Obiettivo di passi all'ora";
 
 // MARK: Units
 /* UOM for steps */
-"steps-unit-of-measure" = "step";
-"steps-unit-of-measure-plural" = "steps";
+"steps-unit-of-measure" = "passo";
+"steps-unit-of-measure-plural" = "passi";
 /* UOM for miles */
 "miles-unit-of-measure" = "mi";
 "miles-unit-of-measure-plural" = "mi";
@@ -49,4 +49,4 @@
 
 // MARK: Widget
 /* The description for the widget as viewed from the widget add screen */
-"widget-desc" = "Get your steps in for the hour";
+"widget-desc" = "Fai i tuoi passi per un'ora";

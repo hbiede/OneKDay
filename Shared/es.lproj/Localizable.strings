@@ -38,11 +38,14 @@
 
 // MARK: Units
 /* UOM for steps */
-"steps-unit-of-measure" = "pasos";
+"steps-unit-of-measure" = "paso";
+"steps-unit-of-measure-plural" = "pasos";
 /* UOM for miles */
 "miles-unit-of-measure" = "mi";
+"miles-unit-of-measure-plural" = "mi";
 /* UOM for meters */
 "meters-unit-of-measure" = "m";
+"meters-unit-of-measure-plural" = "m";
 
 // MARK: Widget
 /* The description for the widget as viewed from the widget add screen */
