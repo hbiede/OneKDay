@@ -16,6 +16,7 @@ struct ContentView: View {
 
     private let userDefaults = UserDefaults()
 
+    @State private var loading = true
     @State private var currentMetricIndex: Int = 0
     @State private var metricTotals: [HKQuantityTypeIdentifier: Double] = [metricOptions[0]: 0.0]
     @State private var metricCounts: [HKQuantityTypeIdentifier: [MetricEntry]] = [
@@ -24,80 +25,101 @@ struct ContentView: View {
     @State private var showingSheet = false
     @State private var dataAnimationPower = 0.0
 
+    @State private var killDataTimer = Timer
+        .publish(every: 3600, on: .current, in: .default)
+        .autoconnect()
+
     @AppStorage(STEP_GOAL_KEY) var stepGoal = 0
 
     @ViewBuilder
     var body: some View {
         let metricID = metricOptions[currentMetricIndex]
         let currentMetricList = metricCounts[metricID, default: []]
-        if !HKHealthStore.isHealthDataAvailable() {
-            Text(
-                NSLocalizedString(
-                    "no-health-access",
-                    comment: "Text for when the app does not have access to health data"
+        if loading {
+            NavigationView {
+                ProgressView()
+            }
+            .onAppear {
+                Task {
+                    onAppear()
+                }
+            }
+            .navigationTitle("OneK Day")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Color.accentColor, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+        } else if !HKHealthStore.isHealthDataAvailable() || currentMetricList.isEmpty {
+            NavigationView {
+                Text(
+                    NSLocalizedString(
+                        "no-health-access",
+                        comment: "Text for when the app does not have access to health data"
+                    )
                 )
-            )
+            }
+            .navigationTitle("OneK Day")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Color.accentColor, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
         } else {
             NavigationView {
                 VStack {
-                    if !currentMetricList.isEmpty {
-                        Chart(currentMetricList, id: \.startDate) {
-                            BarMark(
-                                x: .value(
-                                    NSLocalizedString(
-                                        "time-value-label",
-                                        comment: "The lael for the time axis of the graph"
-                                    ),
-                                    $0.startDate,
-                                    unit: .hour,
-                                    calendar: Calendar.current
+                    Chart(currentMetricList, id: \.startDate) {
+                        BarMark(
+                            x: .value(
+                                NSLocalizedString(
+                                    "time-value-label",
+                                    comment: "The label for the time axis of the graph"
                                 ),
-                                y: .value(
-                                    getUnitSuffix(
-                                        for: preferredUnit(
-                                            for: metricID
-                                        ),
-                                        with: $0.metric
-                                    )?.capitalized(with: Locale.current) ??
-                                    NSLocalizedString(
-                                        "unknown-measurement-unit",
-                                        comment: "Default measurement unit if the real one is unknown"
+                                $0.startDate,
+                                unit: .hour,
+                                calendar: Calendar.current
+                            ),
+                            y: .value(
+                                getUnitSuffix(
+                                    for: preferredUnit(
+                                        for: metricID
                                     ),
-                                    max(pow($0.metric, dataAnimationPower), 0)
-                                )
+                                    with: $0.metric
+                                )?.capitalized(with: Locale.current) ??
+                                NSLocalizedString(
+                                    "unknown-measurement-unit",
+                                    comment: "Default measurement unit if the real one is unknown"
+                                ),
+                                max(pow($0.metric, dataAnimationPower), 0)
                             )
-                            .foregroundStyle(getBarGraphStyle(for: $0.metric))
-                            .accessibilityLabel(formatDate($0.startDate))
-                            .accessibilityValue(formattedValue(
-                                $0.metric,
-                                typeIdentifier: metricID
-                            ) ?? "X")
-                            if currentMetricIndex == 0 {
-                                RuleMark(
-                                    y: .value(
-                                            NSLocalizedString(
-                                                "goal-a11y-label",
-                                                comment: "A11y label for the goal line"
-                                            ),
-                                            stepGoal
-                                    )
-                                )
-                                .accessibilityLabel(
+                        )
+                        .foregroundStyle(getBarGraphStyle(for: $0.metric))
+                        .accessibilityLabel(formatDate($0.startDate))
+                        .accessibilityValue(formattedValue(
+                            $0.metric,
+                            typeIdentifier: metricID
+                        ) ?? "X")
+                        if currentMetricIndex == 0 {
+                            RuleMark(
+                                y: .value(
                                     NSLocalizedString(
                                         "goal-a11y-label",
                                         comment: "A11y label for the goal line"
-                                    )
+                                    ),
+                                    stepGoal
                                 )
-                                .accessibilityValue(formattedValue(
-                                    Double(stepGoal),
-                                    typeIdentifier: metricID
-                                ) ?? "X")
-                            }
+                            )
+                            .accessibilityLabel(
+                                NSLocalizedString(
+                                    "goal-a11y-label",
+                                    comment: "A11y label for the goal line"
+                                )
+                            )
+                            .accessibilityValue(formattedValue(
+                                Double(stepGoal),
+                                typeIdentifier: metricID
+                            ) ?? "X")
                         }
-                        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-
-                        subtitle
                     }
+                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+
+                    subtitle
                 }
                 .padding(EdgeInsets(top: 16, leading: 0, bottom: 16, trailing: 0))
                 .navigationTitle("OneK Day")
@@ -112,7 +134,6 @@ struct ContentView: View {
                 }
                 .toolbarBackground(Color.accentColor, for: .navigationBar)
                 .toolbarBackground(.visible, for: .navigationBar)
-                .onAppear(perform: onAppear)
                 .onChange(of: scenePhase) { newPhase in
                     if newPhase == .active {
                         loadMetrics(for: metricOptions[currentMetricIndex])
@@ -120,6 +141,9 @@ struct ContentView: View {
                 }
                 .sheet(isPresented: $showingSheet, onDismiss: setValuesFromDefault) {
                     SettingsSheet()
+                }
+                .onReceive(killDataTimer) { _ in
+                    loadMetrics(for: metricOptions[currentMetricIndex])
                 }
             }
         }
@@ -131,8 +155,9 @@ struct ContentView: View {
         let currentMetricList = metricCounts[metricID, default: []]
         Button {
             currentMetricIndex = (currentMetricIndex + 1) % metricOptions.count
-            loadMetrics(for: metricOptions[currentMetricIndex])
-            animateData()
+            Task {
+                loadMetrics(for: metricOptions[currentMetricIndex])
+            }
         } label: {
             VStack(alignment: .center) {
                 let metricStringOpt = formattedValue(
@@ -160,8 +185,8 @@ struct ContentView: View {
                                     lastHourMetricString
                                 )
                             )
-                                .multilineTextAlignment(.center)
-                                .font(.title2)
+                            .multilineTextAlignment(.center)
+                            .font(.title2)
                         }
                     }
                 }
@@ -212,13 +237,13 @@ struct ContentView: View {
     }
 
     func loadMetrics(for identifier: HKQuantityTypeIdentifier) {
+        loading = true
         #if DEBUG
         let components = Calendar.current.dateComponents([.hour, .day, .month, .year], from: Date(timeIntervalSinceNow: 3600))
         var result: [MetricEntry] = []
         for i in (1...24).reversed() {
             let startDate = Date(timeInterval: -3600 * Double(i), since: Calendar.current.date(from: components)!)
             let testComponents = Calendar.current.dateComponents([.hour], from: startDate)
-            print(testComponents.hour!)
             var stepCount = Double.random(in: 800...1500)
             if testComponents.hour! == 7 || testComponents.hour! == 21 || testComponents.hour! == 22 {
                 stepCount = Double.random(in: 200...500)
@@ -245,24 +270,38 @@ struct ContentView: View {
                 return acc
             }
         }
+        loading = false
         animateData()
         #else
         if metricTotals[identifier, default: 0].isZero {
             let components = Calendar.current.dateComponents([.day, .month, .year], from: Date())
             HealthData.getHourlyMetricCount(for: identifier) { result in
-                metricCounts[identifier] = result
-                metricTotals[identifier] = result.reduce(0.0) { acc, item in
-                    let testComponents = Calendar.current.dateComponents([.day, .month, .year], from: item.endDate)
-                    if testComponents.day! == components.day! &&
-                        testComponents.month! == components.month! &&
-                        testComponents.year! == components.year! {
-                        return acc + item.metric
+                if result.count > 0 {
+                    metricCounts[identifier] = result
+                    metricTotals[identifier] = result.reduce(0.0) { acc, item in
+                        let testComponents = Calendar.current.dateComponents([.day, .month, .year], from: item.endDate)
+                        if testComponents.day! == components.day! &&
+                            testComponents.month! == components.month! &&
+                            testComponents.year! == components.year! {
+                            return acc + item.metric
+                        } else {
+                            return acc
+                        }
+                    }
+                    loading = false
+                    animateData()
+                } else {
+                    currentMetricIndex = (currentMetricIndex + 1) % metricOptions.count
+                    if currentMetricIndex > 0 {
+                        // Only load if you haven't cycled around to the start
+                        loadMetrics(for: metricOptions[currentMetricIndex])
                     } else {
-                        return acc
+                        loading = false
                     }
                 }
-                animateData()
             }
+        } else {
+            loading = false
         }
         #endif
     }

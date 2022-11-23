@@ -21,7 +21,8 @@ struct MetricEntry: Comparable,
                     ExpressibleByIntegerLiteral,
                     ExpressibleByFloatLiteral,
                     Hashable,
-                    Codable {
+                    Codable,
+                    Sendable {
     var metric: Double
 
     var startDate: Date

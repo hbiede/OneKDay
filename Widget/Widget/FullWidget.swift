@@ -27,7 +27,7 @@ struct FullWidget: View {
                 ZStack(alignment: .center) {
                     Circle()
                         .foregroundColor(.accentColor)
-                        .frame(maxWidth: 48)
+                        .frame(maxWidth: 56)
                     Text("\(Int(metrics[metrics.count - 1].metric))")
                         .font(.title2)
                         .multilineTextAlignment(.center)
@@ -50,3 +50,36 @@ struct FullWidget: View {
         }
     }
 }
+
+#if DEBUG
+struct FullWidget_Previews: PreviewProvider {
+    static var previews: some View {
+        FullWidget(metrics: generateData())
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+    }
+
+    static func generateData() -> [MetricEntry] {
+        let components = Calendar.current.dateComponents([.hour, .day, .month, .year], from: Date(timeIntervalSinceNow: 3600))
+        var result: [MetricEntry] = []
+        for i in (1...24).reversed() {
+            let startDate = Date(timeInterval: -3600 * Double(i), since: Calendar.current.date(from: components)!)
+            let testComponents = Calendar.current.dateComponents([.hour], from: startDate)
+            var stepCount = Double.random(in: 800...1500)
+            if testComponents.hour! == 7 || testComponents.hour! == 21 || testComponents.hour! == 22 {
+                stepCount = Double.random(in: 200...500)
+            } else if testComponents.hour! < 7 || testComponents.hour! > 22 {
+                stepCount = Double.random(in: 0...50)
+            }
+            result.append(
+                MetricEntry(
+                    metric: stepCount,
+                    startDate: startDate,
+                    endDate: Date(timeIntervalSinceNow: -3600 * (Double(i) + 1)),
+                    type: .stepCount
+                )
+            )
+        }
+        return result
+    }
+}
+#endif

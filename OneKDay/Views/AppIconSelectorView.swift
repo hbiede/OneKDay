@@ -26,13 +26,13 @@ struct AppIconSelector: View {
 
                             Spacer()
                             Image(systemName: viewModel.selectedAppIcon == icon
-                                                ? "checkmark.circle.fill"
-                                                : "circle"
+                                    ? "checkmark.circle.fill"
+                                    : "circle"
                             )
-                                .foregroundColor(
-                                    viewModel.selectedAppIcon == icon ? .green : .gray
-                                )
-                                .font(.headline)
+                            .foregroundColor(
+                                viewModel.selectedAppIcon == icon ? .green : .gray
+                            )
+                            .font(.headline)
                         }
                         // Needed to allow for tapping on a spacer
                         .contentShape(Rectangle())

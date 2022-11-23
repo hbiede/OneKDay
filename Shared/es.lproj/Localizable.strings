@@ -21,7 +21,7 @@
 "no-health-access" = "Habilite el acceso a los datos de Salud";
 /* Subtitle explaining the metric count achieved this hour   (e.g., '1234 steps this hour') */
 "this-hour-subtitle" = "%@ esta hora";
-/* The lael for the time axis of the graph */
+/* The label for the time axis of the graph */
 "time-value-label" = "Tiempo";
 /* Default measurement unit if the real one is unknown */
 "unknown-measurement-unit" = "Dimensión";

@@ -27,7 +27,7 @@ struct OneKDayApp: App {
                         comment: "Text to prevent iPads from erroring"
                     )
                 )
-                    .font(.largeTitle)
+                .font(.largeTitle)
             } else if canReadHealthData {
                 ContentView()
             } else if hasCheckedHealthAccess {
@@ -39,7 +39,7 @@ struct OneKDayApp: App {
                 )
             } else {
                 VStack {
-                    Button{
+                    Button {
                         requestHealthAccess()
                     } label: {
                         Text(
@@ -48,15 +48,15 @@ struct OneKDayApp: App {
                                 comment: "Button to enable health data access"
                             )
                         )
-                            .foregroundColor(.white)
+                        .foregroundColor(.white)
                     }
                     .padding()
                     .background(Color.green)
                     .clipShape(Capsule())
                 }
-                    .onAppear {
-                        requestHealthAccess()
-                    }
+                .onAppear {
+                    requestHealthAccess()
+                }
             }
         }
     }

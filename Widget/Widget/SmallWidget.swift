@@ -26,6 +26,7 @@ struct SmallWidget: View {
                     .foregroundColor(.white)
                     .font(.system(size: 500))
                     .minimumScaleFactor(0.01)
+                    .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
                 Text(getUnitSuffix(for: .count(), with: Double(stepCount))!.capitalized)
                     .foregroundColor(.white)
                     .font(.title3)
@@ -41,3 +42,12 @@ struct SmallWidget: View {
         )
     }
 }
+
+#if DEBUG
+struct SmallWidget_Previews: PreviewProvider {
+    static var previews: some View {
+        SmallWidget(stepCount: 1000)
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
+    }
+}
+#endif
