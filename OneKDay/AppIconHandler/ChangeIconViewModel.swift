@@ -19,7 +19,11 @@ final class ChangeAppIconViewModel: ObservableObject {
            let appIcon = AppIcon(rawValue: iconName) {
             selectedAppIcon = appIcon
         } else {
+            #if DEBUG
+            selectedAppIcon = .relax
+            #else
             selectedAppIcon = .primary
+            #endif
         }
     }
 

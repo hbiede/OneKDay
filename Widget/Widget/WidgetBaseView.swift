@@ -69,9 +69,6 @@ struct StepCountWidget: Widget {
             )
         )
         .supportedFamilies([
-            .accessoryCircular,
-            .accessoryInline,
-            .accessoryRectangular,
             .systemSmall,
             .systemMedium,
             .systemLarge

@@ -31,6 +31,7 @@ struct FullWidget: View {
                     Text("\(Int(metrics[metrics.count - 1].metric))")
                         .font(.title2)
                         .multilineTextAlignment(.center)
+                        .foregroundColor(.white)
                 }
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 0))
                 Chart(metrics, id: \.startDate) {

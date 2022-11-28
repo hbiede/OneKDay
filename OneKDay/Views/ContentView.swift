@@ -273,35 +273,33 @@ struct ContentView: View {
         loading = false
         animateData()
         #else
-        if metricTotals[identifier, default: 0].isZero {
-            let components = Calendar.current.dateComponents([.day, .month, .year], from: Date())
-            HealthData.getHourlyMetricCount(for: identifier) { result in
-                if result.count > 0 {
-                    metricCounts[identifier] = result
-                    metricTotals[identifier] = result.reduce(0.0) { acc, item in
-                        let testComponents = Calendar.current.dateComponents([.day, .month, .year], from: item.endDate)
-                        if testComponents.day! == components.day! &&
-                            testComponents.month! == components.month! &&
-                            testComponents.year! == components.year! {
-                            return acc + item.metric
-                        } else {
-                            return acc
-                        }
-                    }
-                    loading = false
-                    animateData()
-                } else {
-                    currentMetricIndex = (currentMetricIndex + 1) % metricOptions.count
-                    if currentMetricIndex > 0 {
-                        // Only load if you haven't cycled around to the start
-                        loadMetrics(for: metricOptions[currentMetricIndex])
+        let components = Calendar.current.dateComponents([.day, .month, .year], from: Date())
+        HealthData.getHourlyMetricCount(for: identifier) { result in
+            if result.count > 0 {
+                metricCounts[identifier] = result
+                metricTotals[identifier] = result.reduce(0.0) { acc, item in
+                    let testComponents = Calendar.current.dateComponents([.day, .month, .year], from: item.endDate)
+                    if testComponents.day! == components.day! &&
+                        testComponents.month! == components.month! &&
+                        testComponents.year! == components.year! {
+                        return acc + item.metric
                     } else {
-                        loading = false
+                        return acc
                     }
                 }
+                loading = false
+                animateData()
+            } else {
+                // Data empty, skip to non-empty metric
+                currentMetricIndex = (currentMetricIndex + 1) % metricOptions.count
+                if currentMetricIndex > 0 {
+                    // Only load if you haven't cycled around to the start
+                    loadMetrics(for: metricOptions[currentMetricIndex])
+                } else {
+                    loading = false
+                    animateData()
+                }
             }
-        } else {
-            loading = false
         }
         #endif
     }

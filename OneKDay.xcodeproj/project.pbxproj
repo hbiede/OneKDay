@@ -11,6 +11,7 @@
 		3E0016B2292486C40050C817 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0016B1292486C40050C817 /* SnapshotHelper.swift */; };
 		3E21D0DD291E1996000298CB /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21D0DC291E1996000298CB /* AppIcon.swift */; };
 		3E21D0E0291E30B1000298CB /* ChangeIconViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21D0DF291E30B1000298CB /* ChangeIconViewModel.swift */; };
+		3E3167D6292E8765009E6B00 /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3E3167D5292E8765009E6B00 /* Widget.intentdefinition */; };
 		3E45C606291B5B100002B1C5 /* OneKDayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C605291B5B100002B1C5 /* OneKDayApp.swift */; };
 		3E45C608291B5B100002B1C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45C607291B5B100002B1C5 /* ContentView.swift */; };
 		3E45C60A291B5B110002B1C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E45C609291B5B110002B1C5 /* Assets.xcassets */; };
@@ -23,8 +24,6 @@
 		3E6B9FCB291C8CF5000A8808 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B9FCA291C8CF5000A8808 /* WidgetBundle.swift */; };
 		3E6B9FCD291C8CF5000A8808 /* WidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B9FCC291C8CF5000A8808 /* WidgetProvider.swift */; };
 		3E6B9FD0291C8CF6000A8808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E6B9FCF291C8CF6000A8808 /* Assets.xcassets */; };
-		3E6B9FD2291C8CF6000A8808 /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B9FCE291C8CF6000A8808 /* Widget.intentdefinition */; };
-		3E6B9FD3291C8CF6000A8808 /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B9FCE291C8CF6000A8808 /* Widget.intentdefinition */; };
 		3E6B9FD6291C8CF6000A8808 /* WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3E6B9FC3291C8CF5000A8808 /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3E9D1A17292BFAA500594281 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E9D1A1A292BFAA500594281 /* Localizable.strings */; };
 		3E9D1A18292BFAA500594281 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E9D1A1A292BFAA500594281 /* Localizable.strings */; };
@@ -76,6 +75,7 @@
 		3E0016B1292486C40050C817 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		3E21D0DC291E1996000298CB /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		3E21D0DF291E30B1000298CB /* ChangeIconViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeIconViewModel.swift; sourceTree = "<group>"; };
+		3E3167D5292E8765009E6B00 /* Widget.intentdefinition */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.intentdefinition; path = Widget.intentdefinition; sourceTree = "<group>"; };
 		3E45C602291B5B100002B1C5 /* OneKDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneKDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E45C605291B5B100002B1C5 /* OneKDayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneKDayApp.swift; sourceTree = "<group>"; };
 		3E45C607291B5B100002B1C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,7 +91,6 @@
 		3E6B9FC7291C8CF5000A8808 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		3E6B9FCA291C8CF5000A8808 /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
 		3E6B9FCC291C8CF5000A8808 /* WidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetProvider.swift; sourceTree = "<group>"; };
-		3E6B9FCE291C8CF6000A8808 /* Widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Widget.intentdefinition; sourceTree = "<group>"; };
 		3E6B9FCF291C8CF6000A8808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E6B9FD1291C8CF6000A8808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E6B9FDB291C8D43000A8808 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
@@ -156,11 +155,11 @@
 		3E45C5F9291B5B100002B1C5 = {
 			isa = PBXGroup;
 			children = (
-				3E6B9FDB291C8D43000A8808 /* WidgetExtension.entitlements */,
 				3EABCC71291C93D800EB680B /* Shared */,
 				3E45C604291B5B100002B1C5 /* OneKDay */,
 				3E6B9FC9291C8CF5000A8808 /* Widget */,
 				3E0016A7292485CF0050C817 /* OneKDayUITests */,
+				3E6B9FDB291C8D43000A8808 /* WidgetExtension.entitlements */,
 				3E6B9FC4291C8CF5000A8808 /* Frameworks */,
 				3E45C603291B5B100002B1C5 /* Products */,
 			);
@@ -180,10 +179,10 @@
 			isa = PBXGroup;
 			children = (
 				3E21D0DE291E309A000298CB /* AppIconHandler */,
-				3E45C61B291B63A50002B1C5 /* Info.plist */,
 				3E6B9FBE291C7B38000A8808 /* Views */,
 				3E45C609291B5B110002B1C5 /* Assets.xcassets */,
 				3E45C60B291B5B110002B1C5 /* OneKDay.entitlements */,
+				3E45C61B291B63A50002B1C5 /* Info.plist */,
 			);
 			path = OneKDay;
 			sourceTree = "<group>";
@@ -223,7 +222,7 @@
 				3EABCC76291C956D00EB680B /* Widget */,
 				3E6B9FCC291C8CF5000A8808 /* WidgetProvider.swift */,
 				3E6B9FCA291C8CF5000A8808 /* WidgetBundle.swift */,
-				3E6B9FCE291C8CF6000A8808 /* Widget.intentdefinition */,
+				3E3167D5292E8765009E6B00 /* Widget.intentdefinition */,
 				3E6B9FCF291C8CF6000A8808 /* Assets.xcassets */,
 				3E6B9FD1291C8CF6000A8808 /* Info.plist */,
 			);
@@ -402,7 +401,6 @@
 				3E45C61A291B5E2C0002B1C5 /* HealthKitSupport+Strings.swift in Sources */,
 				3E21D0DD291E1996000298CB /* AppIcon.swift in Sources */,
 				3E45C61D291B6E8D0002B1C5 /* Types.swift in Sources */,
-				3E6B9FD3291C8CF6000A8808 /* Widget.intentdefinition in Sources */,
 				3E45C608291B5B100002B1C5 /* ContentView.swift in Sources */,
 				3EAD98A9291EC35600F9F222 /* AppIconSelectorView.swift in Sources */,
 				3E45C61F291B752A0002B1C5 /* SettingsSheet.swift in Sources */,
@@ -419,12 +417,12 @@
 				3E6B9FCB291C8CF5000A8808 /* WidgetBundle.swift in Sources */,
 				3EABCC73291C94BD00EB680B /* SmallWidget.swift in Sources */,
 				3EABCC75291C94C800EB680B /* FullWidget.swift in Sources */,
+				3E3167D6292E8765009E6B00 /* Widget.intentdefinition in Sources */,
 				3EABCC70291C93BF00EB680B /* HealthKitSupport+Strings.swift in Sources */,
 				3E6B9FCD291C8CF5000A8808 /* WidgetProvider.swift in Sources */,
 				3EABCC6D291C92DA00EB680B /* WidgetBaseView.swift in Sources */,
 				3EABCC6F291C93BF00EB680B /* HealthData.swift in Sources */,
 				3EABCC6E291C93BF00EB680B /* Types.swift in Sources */,
-				3E6B9FD2291C8CF6000A8808 /* Widget.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,8 +507,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUILD_NUMBER = 11;
-				BUILD_VERSION = 1.1.0;
+				BUILD_NUMBER = 15;
+				BUILD_VERSION = 1.1.1;
 				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -577,8 +575,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUILD_NUMBER = 11;
-				BUILD_VERSION = 1.1.0;
+				BUILD_NUMBER = 15;
+				BUILD_VERSION = 1.1.1;
 				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
