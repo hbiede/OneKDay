@@ -1,5 +1,5 @@
 //
-//  WidgetBaseView.swift
+//  StepCountWidget.swift
 //  WidgetExtension
 //
 //  Created by Hundter Biede on 11/9/22.
@@ -26,17 +26,21 @@ struct StepCountWidgetEntryView: View {
                 Text("\(Int(lastCount))")
                     .font(.largeTitle)
             }
+            .containerBackground(Color.clear, for: .widget)
         case .accessoryRectangular, .accessoryInline:
             Text(formattedValue(
-                lastCount,
-                typeIdentifier: .stepCount
-            )!
+                    lastCount,
+                    typeIdentifier: .stepCount
+                )!
             )
             .font(.largeTitle)
+            .containerBackground(Color.clear, for: .widget)
         case .systemSmall:
             SmallWidget(stepCount: metrics.isEmpty ? 0 : Int(lastCount))
+                .containerBackground(Color.clear, for: .widget)
         default:
             FullWidget(metrics: metrics)
+                .containerBackground(Color.clear, for: .widget)
         }
     }
 }

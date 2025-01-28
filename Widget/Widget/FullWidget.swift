@@ -28,10 +28,14 @@ struct FullWidget: View {
                     Circle()
                         .foregroundColor(.accentColor)
                         .frame(maxWidth: 56)
+                        .widgetAccentable(true)
                     Text("\(Int(metrics[metrics.count - 1].metric))")
                         .font(.title2)
                         .multilineTextAlignment(.center)
                         .foregroundColor(.white)
+                        .widgetAccentable(false)
+                        .scaledToFit()
+                        .minimumScaleFactor(0.5)
                 }
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 0))
                 Chart(metrics, id: \.startDate) {
@@ -46,6 +50,7 @@ struct FullWidget: View {
                         typeIdentifier: .stepCount
                     ) ?? "X")
                 }
+                .widgetAccentable(false)
                 .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
             }
         }
@@ -56,6 +61,7 @@ struct FullWidget: View {
 struct FullWidget_Previews: PreviewProvider {
     static var previews: some View {
         FullWidget(metrics: generateData())
+            .containerBackground(Color.clear, for: .widget)
             .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 

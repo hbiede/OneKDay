@@ -288,7 +288,6 @@ struct ContentView: View {
                     }
                 }
                 loading = false
-                animateData()
             } else {
                 // Data empty, skip to non-empty metric
                 currentMetricIndex = (currentMetricIndex + 1) % metricOptions.count
@@ -297,7 +296,6 @@ struct ContentView: View {
                     loadMetrics(for: metricOptions[currentMetricIndex])
                 } else {
                     loading = false
-                    animateData()
                 }
             }
         }
